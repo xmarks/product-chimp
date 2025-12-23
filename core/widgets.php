@@ -1,0 +1,39 @@
+<?php
+/**
+ * Product Chimp widgets functions
+ *
+ * Register widget area
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ *
+ * @package Product_Chimp
+ */
+
+/**
+ * /inc/ directory override core functions
+ */
+if ( file_exists( get_template_directory() . '/inc/widgets.php' ) ) {
+	require get_template_directory() . '/inc/widgets.php';
+}
+
+if ( ! function_exists( 'product_chimp_widgets_init' ) ) {
+	/**
+	 * Register sidebar
+	 *
+	 * @return void
+	 */
+	function product_chimp_widgets_init(): void {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Sidebar', 'product-chimp' ),
+				'id'            => 'sidebar-1',
+				'description'   => esc_html__( 'Add widgets here.', 'product-chimp' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+	}
+}
+add_action( 'widgets_init', 'product_chimp_widgets_init' );
