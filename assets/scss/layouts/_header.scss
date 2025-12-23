@@ -1,0 +1,156 @@
+:root {
+  --sm-pt: 143px;
+}
+
+.site-main {
+  //--sm-pt: max(115px, 143px * var(--scale));
+  //--sm-pt: 143px;
+
+  padding-top: var(--sm-pt);
+  overflow: hidden; // union gives horizontal scroll
+
+  @include scale-01 {
+    --sm-pt: 133px;
+  }
+
+  @include scale-02 {
+    --sm-pt: 130px;
+  }
+
+  @include scale-03 {
+    --sm-pt: 127px;
+  }
+
+  @include scale-04 {
+    --sm-pt: 123px;
+  }
+
+  @include scale-05 {
+    --sm-pt: 115px;
+  }
+
+  //@include layout-1200 {
+  //  padding-top: 167px;
+  //}
+
+  @include responsive {
+    //padding-top: 154px;
+  }
+  @include tablet-lg {
+    //--sm-pt: 123px;
+    //padding-top: 141px;
+  }
+  @include tablet {
+    //--sm-pt: 123px;
+
+    //padding-top: 123px;
+  }
+}
+
+.site {
+
+  &-header {
+    --header-pt: max(48px, (54px * var(--scale)));
+    --header-pb: max(35px, (49px * var(--scale)));
+
+    --nav-gap: 34px; // doesn't change
+    --logo-w: max(140px, (151px * var(--scale)));
+
+    //@include layout-1200 {
+    //  --header-pt: 64px;
+    //  --header-pb: 63px;
+    //}
+
+    @include responsive {
+      //--header-pt: max(48px, (64px * 0.9));
+      //--header-pb: max(35px, (63px * 0.9));
+    }
+    @include tablet-lg {
+      --header-pt: 48px;
+      --header-pb: 35px;
+      //--header-pt: max(48px, (64px * 0.8));
+      //--header-pb: max(35px, (63px * 0.8));
+    }
+    @include tablet {
+      //--header-pt: 48px;
+      //--header-pb: 35px;
+    }
+
+    .container {
+      gap: var(--nav-gap);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-top: var(--header-pt);
+      padding-bottom: var(--header-pb);
+
+
+      //@include layout-1200 {
+      //  --container-w: 1078px;
+      //}
+    }
+
+    background: transparent;
+    transition: all ease .3s;
+
+    &.is-static {
+      background: rgba(255, 255, 255, 0.05);
+
+      &:before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+
+        transition: all ease .3s;
+      }
+
+      &.submenu-open {
+        background: rgba(255, 255, 255, 0.13);
+
+        &:before {
+          -webkit-backdrop-filter: blur(35px);
+          backdrop-filter: blur(35px);
+
+          @include tablet {
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+          }
+        }
+      }
+    }
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  &-branding {
+    position: relative;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: var(--logo-w);
+
+    display: flex;
+
+    a {
+      display: flex;
+    }
+  }
+
+  &-navigation {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(100% - var(--logo-w) - var(--nav-gap));
+  }
+}

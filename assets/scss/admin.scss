@@ -1,11 +1,25 @@
+
+.select2-swp-acf-si {
+
+  &__icon {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+}
+
+.select2-swp-acf-si {
+
+  &__icon {
+    stroke: currentColor;
+    color: #000;
+  }
+}
+
 // Import variables and mixins.
 @import "abstracts/abstracts";
 
 .editor-styles-wrapper {
 
-  /*--------------------------------------------------------------
-  # Generic
-  --------------------------------------------------------------*/
 
   /* Normalize
   --------------------------------------------- */
@@ -13,65 +27,18 @@
 
   /* Box sizing
   --------------------------------------------- */
-  box-sizing: border-box; // acts as HTML selector
+  box-sizing: border-box;
   @import "generic/box-sizing";
 
   /*--------------------------------------------------------------
   # Base
   --------------------------------------------------------------*/
-
-  /* Typography
-  --------------------------------------------- */
-  // dump from => "base/typography/typography";
-  color: $color__text-main;
-  font-family: $font__main;
-  font-size: 1rem;
-  line-height: $font__line-height-body;
-
-  button,
-  input,
-  select,
-  optgroup,
-  textarea {
-    color: $color__text-main;
-    font-family: $font__main;
-    font-size: 1rem;
-    line-height: $font__line-height-body;
-  }
-
-  @import "base/typography/headings";
-  @import "base/typography/copy";
-
-  /* Elements
-  --------------------------------------------- */
-  // dump from => "base/elements/body";
-  background: $color__background-body; // Fallback for when there is no custom background color defined.
-
-  @import "base/elements/container";
-  @import "base/elements/svg";
-  @import "base/elements/hr";
-  @import "base/elements/lists";
-  @import "base/elements/media";
-  @import "base/elements/tables";
-
-  /* Links
-  --------------------------------------------- */
-  @import "base/elements/links";
-
-  /* Forms
-  --------------------------------------------- */
-  @import "base/elements/buttons";
-  @import "base/elements/fields";
+  @import "base/base";
 
   /*--------------------------------------------------------------
   # Components
   --------------------------------------------------------------*/
   @import "components/components";
-
-  // Force Show animated elements
-  .animate__animated.opacity-0 {
-    opacity: 1!important;
-  }
 }
 
 // Page Notice
@@ -79,85 +46,123 @@
   z-index: 1;
 }
 
-// Customizer Styles - Admin Section
-#customize-controls {
+.editor-styles-wrapper {
+  overflow: hidden;
+  background-color: $color__background-body;
+  color: $color__text-main;
 
-  .customize-control {
-
-    // CSS style checkboxes as toggle switches
-    // src: https://codepen.io/chriscoyier/pen/JjozJLv
-    &.customize-control-checkbox {
-
-      // wrapper
-      .customize-inside-control-row {
-        margin-left: 0;
-        display: flex;
-
-        input {
-          display: none;
-
-          &:checked {
-
-            + label {
-
-              &:before {
-                background-color: #89c12d;
-              }
-
-              &:after {
-                left: 24px;
-              }
-            }
-          }
-        }
-
-        label {
-          position: relative;
-
-          padding-left: calc(48px + 5px);
-
-          &:before,
-          &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            cursor: pointer;
-          }
-
-          &:before {
-            top: 0;
-            left: 0;
-            width: 48px;
-            height: 24px;
-
-            background-color: #dedede;
-            border-radius: 9999em;
-            -webkit-transition: background-color 0.25s ease;
-            transition: background-color 0.25s ease;
-          }
-
-          &:after {
-            top: 0;
-            left: 0;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #fff;
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
-            -webkit-transition: left 0.25s ease;
-            transition: left 0.25s ease;
-          }
-        }
-      }
-    }
+  * {
+    font-family: $font__main;
   }
 
-  // CodeMirror Styles
-  .customize-control-code_editor {
-    .CodeMirror-wrap {
-      height: 100%;
-    }
+  // Blocks
+  @import "blocks/block-hero";
+  @import "blocks/block-hero-type2";
+  @import "blocks/block-logo-carousel";
+  @import "blocks/block-promo";
+  @import "blocks/block-image-sep";
+  @import "blocks/block-timeline";
+
+  @import "blocks/block-testimonial";
+  // Testimonial - admin only styles
+  .testimonial-section-splide__track {
+    position: relative;
   }
+  .testimonial-section-splide__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    list-style: none;
+    margin:0;
+    padding: 0;
+  }
+  .testimonial-section-splide__slide {
+    max-width: 100%;
+  }
+  .testimonial-section-splide__list {
+    grid-gap: var(--section-splide-list-gap);
+  }
+  .testimonial-section-splide__slide {
+    margin: 0;
+  }
+
+  @import "blocks/block-scroller";
+  // Scroller - admin only styles
+  .scroller-section-splide__track {
+
+  }
+  .scroller-section-splide__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-gap: var(--scroller-slide-gap);
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+  .scroller-section-splide__slide {
+    margin: 0;
+    padding: 0;
+  }
+
+  @import "blocks/block-contact";
+  @import "blocks/block-contact-tabs";
+  @import "blocks/block-map";
+  @import "blocks/block-tagline";
+  @import "blocks/block-lp-carousel";
+
+  // Latest Posts Carousel - admin only styles
+  .lp-carousel-section-splide__track {
+    position: relative;
+  }
+  .lp-carousel-section-splide__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    list-style: none;
+    margin:0;
+    padding: 0;
+  }
+  .lp-carousel-section-splide__slide {
+    max-width: 100%;
+  }
+  .lp-carousel-section-splide__list {
+    grid-gap: var(--section-splide-list-gap);
+  }
+  .lp-carousel-section-splide__slide {
+    margin: 0!important;
+  }
+
+  @import "blocks/block-widget-cta";
+  @import "blocks/block-product-grid";
+  @import "blocks/block-quote";
+  @import "blocks/block-faq";
+  @import "blocks/block-story";
+  @import "blocks/block-team";
+  // Team - admin only styles
+  .team-section-splide__track {
+    position: relative;
+  }
+  .team-section-splide__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    list-style: none;
+    margin:0;
+    padding: 0;
+  }
+  .team-section-splide__slide {
+    position: relative;
+    max-width: 100%;
+  }
+  .team-section-splide__list {
+    grid-gap: var(--section-splide-list-gap);
+  }
+  .team-section-splide__slide {
+    margin: 0;
+  }
+
+  @import "blocks/block-contact-cta";
 }
-
 

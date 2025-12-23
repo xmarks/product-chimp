@@ -1,0 +1,136 @@
+body.error404 {
+  min-height: 100vh;
+  background: #ffffff;
+
+  display: flex;
+
+  .site {
+    flex: 1 1 100%;
+    display: flex;
+
+    &-main {
+      flex: 1 1 100%;
+
+      padding: 0;
+      display: grid;
+      place-items: center;
+
+      .page-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.error-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    max-width: calc(100% * var(--scale));
+
+    @include mobile {
+      max-width: 260px;
+    }
+  }
+
+  &__heading {
+    margin: 0;
+    font-size: max(44px, (89.4px * var(--scale)));
+    line-height: 1.4;
+
+    font-weight: 900;
+    text-transform: capitalize;
+    text-align: center;
+
+    @include mobile {
+      font-size: 44px;
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: max(16px, (22px * var(--scale)));
+    font-weight: 500;
+    line-height: 1.5;
+
+    max-width: max(275px, (550px * var(--scale)));
+    text-align: center;
+
+    @include mobile {
+      margin-top: 24px;
+
+      font-size: 16px;
+
+      max-width: 275px;
+    }
+  }
+
+  &__cta {
+    padding: 0;
+    background: none;
+
+    --btn-c-hover: #fff;
+
+    --btn-pt: max(8px, (11.5px * var(--scale)));
+    --btn-pr: max(37px, (55px * var(--scale)));
+    --btn-pb: max(8px, (11.5px * var(--scale)));
+    --btn-pl: max(37px, (55px * var(--scale)));
+
+    margin-top: max(47px, (67px * var(--scale)));
+
+    font-size: max(20px, (30px * var(--scale)));
+    line-height: 1.4;
+    font-weight: 500;
+
+    position: relative;
+    transition: all ease .3s;
+
+    @include mobile {
+      --btn-pt: 8px;
+      --btn-pr: 37px;
+      --btn-pb: 8px;
+      --btn-pl: 37px;
+
+      margin-top: 47px;
+      font-size: 20px;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -5%;
+      width: 110%;
+      bottom: -5%;
+
+      border-radius: 44px;
+      background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
+      filter: blur(24px);
+
+      overflow: visible!important;
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+    }
+
+    .inside {
+      padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
+
+      border-radius: 50px;
+      background-color: var(--btn-bgc);
+
+      z-index: 1;
+    }
+  }
+}

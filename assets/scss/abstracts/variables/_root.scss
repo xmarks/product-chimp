@@ -1,4 +1,22 @@
 :root {
-  --st-container-w: 1320px;
-  --st-container-px: 15px;
+  --container-w: max(768px, (1500px * var(--scale)));
+  --container-px: 15px;
+
+  --scale: 1;
+
+  @include scale-01 {
+     --scale: 0.9;
+  }
+  @include scale-02 {
+    --scale: 0.85;
+  }
+  @include scale-03 {
+    --scale: 0.8;
+  }
+  @include scale-04 {
+    --scale: 0.7;
+  }
+  @include scale-05 {
+    --scale: 0.6;
+  }
 }

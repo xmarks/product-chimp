@@ -1,0 +1,337 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.hero-type2-section {
+  $section: &;
+
+  position: relative;
+  overflow: hidden;
+
+  --section-content-left-w: max(450px, (770px * var(--scale)));
+
+  --section-heading-w: max(420px, calc(720px * var(--scale)));
+  --section-tagline-w: max(450px, calc(740px * var(--scale)));
+
+  --section-content-pt: max(7px, (34.5px * var(--scale)));
+  --section-content-pb: max(28px, (143px * var(--scale)));
+  --section-content-left-pt: 35px;
+
+  --section-hero-img-w: calc(926px * var(--hero-type2-img-scale));
+  --section-hero-img-h: calc(678px * var(--hero-type2-img-scale));
+  --section-content-min-h: calc( var(--section-hero-img-h) + var(--section-content-pt) + var(--section-content-pb) );
+
+  @include mobile {
+    --section-content-pt: 7px;
+    --section-content-pb: 62px;
+  }
+
+  // Hero Image - Fixed scaling for different screen sizes
+  --hero-type2-img-scale: 1;
+
+  @include scale-01 {
+    --hero-type2-img-scale: 0.9;
+  }
+  @include scale-02 {
+    --hero-type2-img-scale: 0.85;
+  }
+  @include scale-03 {
+    --hero-type2-img-scale: 0.8;
+  }
+  @include scale-04 {
+    --hero-type2-img-scale: 0.7;
+  }
+  @include tablet-lg {
+    --hero-type2-img-scale: 0.65;
+  }
+  @media (max-width: 880px) {
+    --hero-type2-img-scale: 0.6;
+  }
+  @media (max-width: 840px) {
+    --hero-type2-img-scale: 0.55;
+  }
+  @media (max-width: 800px) {
+    --hero-type2-img-scale: 0.5;
+  }
+  @include tablet {
+    --hero-type2-img-scale: 0.7; // vertical mobile design
+  }
+  @media (max-width: 620px) {
+    --hero-type2-img-scale: 0.65;
+  }
+  @include mobile {
+    --hero-type2-img-scale: 0.6;
+  }
+  @include mobile-sm {
+    --hero-type2-img-scale: 0.5;
+  }
+  @media (max-width: 420px) {
+    --hero-type2-img-scale: 0.45;
+  }
+
+  .container {
+
+  }
+
+  &-wrapper {
+
+  }
+
+  &-content {
+    position: relative;
+
+    padding-top: var(--section-content-pt);
+    padding-bottom: var(--section-content-pb);
+    min-height: var(--section-content-min-h);
+
+    display: flex;
+
+    @include tablet {
+      gap: 58px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-left,
+    &-right {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    &-left {
+      z-index: 1;
+
+      padding-top: var(--section-content-left-pt);
+
+      flex-basis: var(--section-content-left-w);
+      max-width: var(--section-content-left-w);
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include tablet {
+        padding-top: 0;
+
+        align-items: center;
+        flex-basis: auto;
+        max-width: none;
+      }
+    }
+
+    &-right {
+      width: var(--section-hero-img-w);
+      height: var(--section-hero-img-h);
+
+      position: absolute;
+      display: flex;
+      top: var(--section-content-pt);
+      right: 0;
+
+      @include tablet {
+        position: relative;
+        top: auto;
+        right: auto;
+
+        //width: auto;
+        //height: auto;
+      }
+
+      .hero-type2-section__img {
+        display: flex;
+        transform: translateX(22%);
+
+        @include tablet {
+          transform: none;
+        }
+
+        &--has-line {
+          &:before {
+            --vector-w: calc(833px * var(--hero-type2-img-scale));
+            --vector-h: calc(473px * var(--hero-type2-img-scale));
+
+            content: "";
+            position: absolute;
+            top: 16.5%;
+            right: -1.5%;
+
+            background-image: url("../images/vector-hero-type2-line.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            width: var(--vector-w);
+            height: var(--vector-h);
+          }
+        }
+
+        img {
+          position: relative;
+
+          width: var(--section-hero-img-w);
+          height: var(--section-hero-img-h);
+
+          @include tablet {
+            //width: auto;
+            //height: auto;
+            //max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__heading {
+    font-size: max(40px, (81px * var(--scale)));
+    line-height: 1.2;
+
+    font-weight: 400;
+
+    margin: 0 0 max(20px, (34px * var(--scale)));
+    max-width: var(--section-heading-w);
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include mobile {
+      font-size: 40px;
+      line-height: 1.3;
+      max-width: 360px;
+
+      margin-bottom: 20px;
+    }
+
+    & + .hero-type2-section__tag {
+      @include mobile {
+        margin-top: 5px;
+      }
+    }
+  }
+
+
+  &__tag {
+    font-size: max(22px, (30px * var(--scale)));
+    line-height: 1.4;
+    font-weight: 400;
+
+    color: $color__main;
+    background-color: $hero_tag_bg;
+
+    padding: 0 40px;
+    border-radius: 4px;
+    margin-bottom: max(10px, (15px * var(--scale)));
+  }
+
+  &__tagline {
+    font-size: max(16px, (24px * var(--scale)));
+    line-height: 1.4;
+
+    margin: 0;
+
+    max-width: var(--section-tagline-w);
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include mobile {
+      max-width: 370px;
+    }
+  }
+
+  &__tagline + .hero-type2-section__cta {
+    margin: 42px 0 0; // Button gets margin only if tagline is right above it
+
+    @include mobile {
+      margin-top: 43px;
+    }
+  }
+
+  &__cta {
+
+    @include tablet {
+
+    }
+
+  }
+
+  &__img {
+
+    &--mobile {
+
+    }
+  }
+
+
+  // Style Variants
+  &--variant-2 {
+    --section-hero-img-w: auto;
+    --section-hero-img-h: auto;
+    --section-content-pt: 7.5px;
+    --section-content-pb: max(59px, (126px * var(--scale)));
+
+    --section-content-left-pt: calc(62px * var(--scale));
+
+    --section-content-right-w: calc(100% - var(--section-content-left-w));
+
+    @include tablet {
+      --section-content-right-w: auto;
+    }
+
+    @include mobile {
+      --section-content-pb: 59px;
+    }
+
+    .hero-type2-section {
+
+      &-content {
+        padding-top: var(--section-content-pt);
+
+        @include tablet {
+          gap: 42px;
+        }
+
+        &-left {
+
+        }
+
+        &-right {
+          position: relative;
+          top: auto;
+          right: auto;
+
+          flex-basis: var(--section-content-right-w);
+          max-width: var(--section-content-right-w);
+
+          .hero-type2-section__img {
+            transform: none;
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &__img {
+        align-items: flex-start;
+
+        &--desktop {
+
+          @include tablet {
+            display: none;
+          }
+        }
+
+        &--mobile {
+          display: none;
+
+          @include tablet {
+            display: flex;
+            max-width: 420px;
+          }
+        }
+      }
+    }
+  }
+}

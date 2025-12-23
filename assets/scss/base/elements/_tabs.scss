@@ -1,0 +1,65 @@
+.sweept-tabs {
+
+  // Tab Nav
+  &-nav {
+    --tabs-gap: max(50px, (70px * var(--scale)));
+    --tabs-btn-gap: max(3px, (7px * var(--scale)));
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    gap: var(--tabs-gap);
+    display: flex;
+
+    &__item {
+
+      button {
+        background: none;
+        padding: 0;
+        border: none;
+
+        color: $color__typography;
+        @include el-typography-tabs-nav;
+
+        cursor: pointer;
+
+        gap: var(--tabs-btn-gap);
+        display: flex;
+        flex-direction: column;
+
+        &:after {
+          content: "";
+          background-color: $color__main;
+
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 0;
+
+          transition: width ease .3s;
+        }
+
+        &.active {
+
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // Tab Content
+  &-content {
+    margin-top: max(25px, calc(36px * var(--scale)));
+
+    .tab-pane {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

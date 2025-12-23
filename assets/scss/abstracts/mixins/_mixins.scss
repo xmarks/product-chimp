@@ -9,3 +9,258 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Text Line Clamp
+@mixin line-clamp ($lines) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: $lines; /* number of lines to show */
+	line-clamp: $lines;
+	-webkit-box-orient: vertical;
+}
+
+
+// Scale breakpoints
+@mixin scale-01 { @media only screen and (max-width: 1730px) { @content; } }
+@mixin scale-02 { @media only screen and (max-width: 1580px) { @content; } }
+@mixin scale-03 { @media only screen and (max-width: 1440px) { @content; } } // h-810
+@mixin scale-04 { @media only screen and (max-width: 1280px) { @content; } } // h-720
+@mixin scale-05 { @media only screen and (max-width: 1120px) { @content; } } // h-630
+
+
+// Mobile Breakpoints
+//@mixin layout-1200 { @media only screen and (max-width: 1440px) { @content; } }
+@mixin desktop-xl { @media only screen and (max-width: 1400px) { @content; } }
+@mixin desktop { @media only screen and (max-width: 1200px) { @content; } }
+@mixin responsive { @media only screen and (max-width: 1199px) { @content; } }
+@mixin tablet-lg { @media only screen and (max-width: 992px) { @content; } } // h-558
+@mixin tablet { @media only screen and (max-width: 768px) { @content; } }
+@mixin mobile { @media only screen and (max-width: 576px) { @content; } }
+@mixin mobile-sm { @media only screen and (max-width: 480px) { @content; } }
+
+
+// Typography Mixins - Navigation
+@mixin typography-nav {
+	font-size: var(--pnav-fs);
+	font-weight: 500;
+}
+
+// Typography Mixins - Block => Hero
+@mixin typography-hero-heading-fs {
+	font-size: var(--h-heading-fs);
+	line-height: 1.208;
+}
+@mixin typography-hero-tagline-fs {
+	font-size: var(--h-tagline-fs);
+	line-height: 1.375;
+}
+@mixin typography-hero-cta-fs {
+	font-size: var(--h-cta-fs);
+	line-height: 1;
+}
+
+// Typography Mixins - Block => Promo
+@mixin typography-promo-heading-fs {
+	font-size: var(--p-heading-fs);
+	line-height: 1.177;
+}
+@mixin typography-promo-item-counter-fs {
+	font-size: var(--p-item-counter-fs);
+	line-height: 1;
+}
+@mixin typography-promo-item-heading-fs {
+	font-size: var(--p-item-heading-fs);
+	line-height: 1;
+}
+@mixin typography-promo-item-desc-fs {
+	font-size: var(--p-item-desc-fs);
+	line-height: 1.4;
+}
+
+// Typography Mixins - Block => Timeline
+@mixin typography-timeline-item-heading-fs {
+	font-size: var(--t-item-heading-fs);
+	line-height: 1.285;
+}
+@mixin typography-timeline-item-desc-fs {
+	font-size: var(--t-item-desc-fs);
+	line-height: 1.4;
+}
+
+// Typography Mixins - Block => Testimonial
+@mixin typography-testimonial-heading {
+	font-size: var(--ttm-heading-fs);
+	line-height: 1.177;
+	font-weight: 400;
+}
+@mixin typography-testimonial-tagline {
+	font-size: var(--ttm-tagline-fs);
+	line-height: 1.1;
+	font-weight: 400;
+
+	@include mobile {
+		line-height: 1.4;
+	}
+}
+@mixin typography-testimonial-item-author {
+	font-size: var(--ttm-item-fs);
+	line-height: 1.5;
+	font-weight: 600;
+}
+@mixin typography-testimonial-item-position {
+	font-size: var(--ttm-item-fs);
+	line-height: 1.5;
+	font-weight: 400;
+}
+@mixin typography-testimonial-item-quote {
+	font-size: var(--ttm-item-fs);
+	line-height: 1.4;
+	font-weight: 400;
+}
+
+// Typography Mixins - Block => Scroller
+@mixin typography-scroller-text {
+	font-size: var(--scr-text-fs);
+	line-height: 1;
+	font-weight: 500;
+}
+
+// Typography Mixins - Block => Contact
+@mixin typography-contact-heading {
+	font-size: var(--c-heading-fs);
+	line-height: normal;
+	font-weight: 400;
+}
+@mixin typography-contact-subheading {
+	font-size: var(--c-subheading-fs);
+	line-height: 1.35;
+	font-weight: 400;
+}
+@mixin typography-contact-input {
+	font-size: var(--c-input-fs);
+	line-height: 1;
+	font-weight: 500;
+}
+@mixin typography-contact-submit {
+	font-size: var(--c-submit-fs);
+	line-height: 1;
+	font-weight: 500;
+}
+
+// Typography Mixins - Element => Tabs
+@mixin el-typography-tabs-nav {
+	font-size: var(--tabs-nav-fs);
+	line-height: 1;
+	font-weight: 500;
+}
+
+// Typography Mixins - Block - Contact Tabs
+@mixin typography-ctabs-heading {
+	font-size: var(--ctabs-heading-fs);
+	line-height: 1.28571;
+	font-weight: 400;
+}
+@mixin typography-ctabs-desc {
+	font-size: var(--ctabs-desc-fs);
+	line-height: 2.1875;
+	font-weight: 400;
+}
+@mixin typography-ctabs-mailto {
+	font-size: var(--tabs-nav-fs);
+	line-height: 1.84167;
+	font-weight: 400;
+}
+
+// Typography Mixins - Block - Map
+@mixin typography-map-address {
+	font-size: var(--map-fs);
+	line-height: 1.09375;
+	font-weight: 400;
+}
+
+// Typography Mixins - Block - Tagline
+@mixin typography-tagline-heading {
+	font-size: var(--tagline-heading-fs);
+	line-height: 1.28571;
+	font-weight: 400;
+}
+@mixin typography-tagline-desc {
+	font-size: var(--tagline-desc-fs);
+	line-height: 1.4;
+	font-weight: 400;
+}
+
+// Typography Mixins - Footer
+@mixin typography-footer-nav {
+	font-size: var(--f-nav-fs);
+	line-height: 1.5;
+	font-weight: 600;
+}
+@mixin typography-footer-copyright {
+	font-size: var(--f-copy-fs);
+	line-height: normal;
+	font-weight: 400;
+}
+
+// Typography - General
+@mixin inner-header {
+	@include typography-hero-heading-fs;
+	font-weight: normal;
+}
+@mixin h1 {
+	font-size: var(--fs-h1);
+	line-height: normal;
+	font-weight: 400; // 700 ???
+}
+@mixin h2 {
+	font-size: var(--fs-h2);
+	line-height: normal;
+	font-weight: 400; // 700 ???
+}
+@mixin h3 {
+	//font-size: var(--fs-h3);
+	font-weight: 600;
+}
+@mixin p {
+	font-size: var(--fs-p);
+	//line-height: normal;
+	line-height: 1.25;
+	font-weight: 400;
+}
+
+// Typography - Blog Post Single
+@mixin typography-bps-categories {
+	font-size: var(--bps-categories-fs);
+	line-height: 1;
+	font-weight: 400;
+}
+@mixin typography-bps-heading {
+	font-size: var(--bps-heading-fs);
+	line-height: 1.28571;
+	font-weight: 400;
+}
+@mixin typography-bps-h2 {
+	font-size: var(--bps-h2);
+	line-height: 1.30952;
+	font-weight: 500;
+
+	margin: max(50px, (80px * var(--scale))) 0 max(20px, (30px * var(--scale)));
+}
+@mixin typography-bps-excerpt {
+	font-size: var(--bps-excerpt-fs);
+	line-height: 1.4;
+	font-weight: 400;
+}
+@mixin typography-bps-p {
+	font-size: var(--bps-p);
+	// line-height: 1.04167;
+	line-height: 1.35;
+	font-weight: 400;
+
+	margin: 0 0 max(20px, (30px * var(--scale)));
+}
+@mixin typography-bps-figcaption {
+	font-size: var(--bps-caption-fs);
+	line-height: 1.35;
+	font-weight: 400;
+}

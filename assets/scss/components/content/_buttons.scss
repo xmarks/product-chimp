@@ -1,0 +1,202 @@
+@mixin btn {
+  --btn-pt: 10px;
+  --btn-pr: 14px;
+  --btn-pb: 10px;
+  --btn-pl: 14px;
+
+  --btn-fs: 16px;
+  --btn-lh: 1;
+
+  --btn-gap: 7px;
+
+  --btn-c: #fff;
+  --btn-c-hover: #{$color__link-hover};
+  --btn-bgc: #{$color__main};
+  --btn-bgc-hover: #{$color__second_purple};
+
+  padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
+
+  font-size: var(--btn-fs);
+  line-height: var(--btn-lh);
+
+  border-radius: 50px;
+  color: var(--btn-c);
+  background-color: var(--btn-bgc);
+
+  text-decoration: none !important;
+
+  transition: color, background-color ease .3s;
+
+  overflow: visible;
+  outline: none!important;
+
+  &:hover,
+  &:focus {
+    color: var(--btn-c-hover);
+    background-color: var(--btn-bgc-hover);
+  }
+
+  &:visited {
+    color: var(--btn-c);
+  }
+
+  gap: var(--btn-gap);
+  display: flex;
+  align-items: center;
+
+  &--big {
+    --btn-pt: max(15px, (21px * var(--scale)));
+    --btn-pr: max(41px, (77px * var(--scale)));
+    --btn-pb: max(15px, (21px * var(--scale)));
+    --btn-pl: max(41px, (77px * var(--scale)));
+
+    @include tablet {
+      --btn-pt: 15px;
+      --btn-pr: 41px;
+      --btn-pb: 15px;
+      --btn-pl: 41px; // manually correct as it was too big
+    }
+
+    //--btn-gap: calc(7px + 10px);
+    --btn-gap: max(18px, (26px * 0.9 * var(--scale)));
+
+    @include typography-hero-cta-fs;
+    font-weight: 500;
+  }
+
+  &--orange,
+  &--white {
+    --btn-c: #{$color__typography};
+    --btn-c-hover: #{$color__typography};
+
+    //--btn-bgc: #{$color__btn_bg};
+    --btn-bgc: #{$color__btn_bg-lighten};
+    --btn-bgc-hover: #{$color__btn_bg-lighten};
+
+    background-color: transparent;
+
+    outline: none;
+
+    transform: scale(1);
+    transition: transform ease .3s;
+
+    padding: 0;
+
+    .inside {
+      padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
+
+      gap: var(--btn-gap);
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+      border-radius: 50px;
+      color: var(--btn-c);
+      background-color: var(--btn-bgc);
+      border: 2px solid var(--btn-bgc);
+
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+
+      transform: scale(1.1);
+      overflow: visible!important;
+      -webkit-transform:scale(1.1, 1.1);
+    }
+
+    @include mobile {
+      position: relative;
+    }
+
+    &:before {
+      @include mobile {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 5%;
+        width: 90%;
+        bottom: 0;
+
+        border-radius: 44px;
+        background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
+        filter: blur(20px);
+
+        overflow: visible!important;
+
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &-outline {
+
+      .inside {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--white {
+    --btn-c: #{$color__typography};
+    --btn-c-hover: #{$color__typography};
+
+    --btn-bgc: #{$white};
+    --btn-bgc-hover: transparent;
+
+    transform: none;
+    -webkit-transform: none;
+    background: none;
+
+    .inside {
+      background-color: var(--btn-bgc);
+      border: 1px solid var(--btn-bgc);
+      transition: background-color ease .3s;
+    }
+
+    &:hover,
+    &:focus {
+      transform: none;
+      -webkit-transform: none;
+
+      .inside {
+        background-color: var(--btn-bgc-hover);
+
+      }
+    }
+
+    @include mobile {
+      position: relative;
+    }
+
+    &:before {
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  &--has-svg {
+    --btn-pr: max(42px, (44px * var(--scale)));
+    //margin-right: 5px;
+
+    svg {
+      width: max(12px, (17px * var(--scale)));
+      height: auto;
+    }
+  }
+}
+
+.btn {
+  @include btn;
+}
+
+.btn-nav {
+  a {
+    @include btn;
+  }
+}

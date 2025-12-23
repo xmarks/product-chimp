@@ -1,0 +1,230 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.product-grid-section {
+  --section-pt: 83px;
+  --section-pb: 83px;
+
+  padding: var(--section-pt) 0 var(--section-pb);
+
+  @include tablet {
+    --section-pt: 48px;
+    --section-pb: 114px;
+  }
+
+  .container {
+
+  }
+
+  &-wrapper {
+
+  }
+
+  &-grid {
+    column-count: 2;
+    column-gap: max(12px, (20px * var(--scale)));
+
+    width: 100%;
+
+    @include tablet {
+      column-count: 1;
+
+      max-width: 580px;
+      margin: 0 auto;
+      column-gap: 0;
+    }
+
+    @include mobile {
+      max-width: none;
+    }
+
+    &__item {
+      position: relative;
+      margin-bottom: max(12px, (20px * var(--scale)));
+
+      width: 100%;
+
+      border-radius: 13px;
+      overflow: hidden;
+
+      @include tablet {
+        margin-bottom: 20px!important;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        margin-bottom: 0;
+      }
+
+      &-content {
+        position: absolute;
+
+        top: max(63px, (100px * var(--scale)));
+        left: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--white {
+          color: $white;
+        }
+
+        @include scale-05 {
+          top: 50px;
+        }
+        @include tablet-lg {
+          top: 40px;
+        }
+        @media (max-width: 880px) {
+          top: 30px;
+        }
+
+        @include mobile {
+          top: 32px;
+          left: 25px;
+          align-items: flex-start;
+        }
+      }
+
+      &-title {
+        color: inherit;
+
+        font-size: max(22px, (40px * var(--scale)));
+        font-weight: 600;
+        line-height: 1.1;
+        text-align: center;
+
+        margin: 0 0 max(6px, (10px * var(--scale)));
+
+        @include mobile {
+          text-align: left;
+          font-size: 22px;
+        }
+      }
+
+      &-desc {
+        color: inherit;
+
+        font-size: max(16px, (20px * var(--scale)));
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: center;
+
+        max-width: max(320px, (520px * var(--scale)));
+
+        @include mobile {
+          text-align: left;
+          font-size: 16px;
+        }
+
+        @include mobile-sm {
+          max-width: 280px!important;
+        }
+      }
+
+      &-bg-desktop {
+        display: flex;
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      &-bg-mobile {
+        display: none;
+
+        @include mobile {
+          display: flex;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      // Item 1 Styles
+      &:nth-child(1) {
+
+        .product-grid-section {
+
+          &-grid {
+            &__item {
+              &-content {
+
+              }
+
+              &-desc {
+
+              }
+            }
+          }
+        }
+      }
+
+      // Item 2 Styles
+      &:nth-child(2) {
+
+        .product-grid-section {
+          &-grid {
+            &__item {
+              &-content {
+                top: max(74px, (117px * var(--scale)));
+
+                @include tablet-lg {
+                  top: 54px;
+                }
+              }
+
+              &-desc {
+                //max-width: max(320px, 490px * var(--scale));
+                max-width: max(320px, 520px * var(--scale));
+              }
+            }
+          }
+        }
+      }
+
+      // Item 3 Styles
+      &:nth-child(3) {
+
+        .product-grid-section {
+          &-grid {
+            &__item {
+              &-content {
+
+              }
+
+              &-desc {
+                max-width: max(320px, 490px * var(--scale));
+              }
+            }
+          }
+        }
+      }
+
+      // Item 4 Styles
+      &:nth-child(4) {
+
+        .product-grid-section {
+          &-grid {
+            &__item {
+              &-content {
+                top: max(62px, (98px * var(--scale)));
+
+                @include tablet-lg {
+                  top: 32px;
+                }
+              }
+
+              &-desc {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

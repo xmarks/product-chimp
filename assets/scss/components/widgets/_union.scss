@@ -1,0 +1,71 @@
+.union {
+  --union-w: calc(1757px * var(--scale));
+  --union-h: calc(1306px * var(--scale));
+
+  @include mobile {
+    --union-w: calc(1757px * 0.3);
+    --union-h: calc(1306px * 0.3);
+  }
+
+  //--union-el1-w: 653px;
+  //--union-el2-w: 890px;
+
+  position: relative;
+
+  width: var(--union-w);
+  height: var(--union-h);
+
+  &:before {
+    content: "";
+    position: absolute;
+
+    //top: -6.327%;
+    //left: 17.175%;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    bottom: 0;
+
+    background-image: url("../images/vector-union.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  //filter: blur(100px);
+  //opacity: 0.9;
+
+  //&__el1,
+  //&__el2 {
+  //  border-radius: 100%;
+  //  transform: translateX(-9.03%) translateY(-26.18%);
+  //}
+
+  //&__el1 {
+  //  // opacity: 0.5;
+  //  background: #CDD1FB;
+  //  // filter: blur(103.6050033569336px);
+  //
+  //  width: var(--union-el2-w);
+  //  height: var(--union-el2-w);
+  //
+  //  position: absolute;
+  //  bottom: 0;
+  //  left: 0;
+  //}
+  //
+  //&__el2 {
+  //  // opacity: 0.4;
+  //  background: #A8E7D9;
+  //  // filter: blur(100px);
+  //
+  //  width: var(--union-el1-w);
+  //  height: var(--union-el1-w);
+  //
+  //  position: absolute;
+  //  top: 0;
+  //  right: 0;
+  //}
+}
+
+// ToDo: check blend mode Multiply for union with CSS

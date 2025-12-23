@@ -1,0 +1,223 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.contact-tabs-section {
+  --section-pt: max(13px, (117.5px * 0.5 * var(--scale)));
+  --section-pb: max(20px, (50px * 0.5 * var(--scale)));
+
+  padding: var(--section-pt) 0 var(--section-pb);
+
+  position: relative;
+
+  @include tablet {
+    --section-pt: 13px;
+    --section-pb: 20px;
+  }
+
+  &__bg {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: contain;
+
+    @include scale-05 {
+      height: 420px;
+      background-position-x: calc(100% + 55px);
+    }
+
+    @include mobile {
+      top: -40px;
+      height: 293px;
+      background-position-x: calc(100% + 40px);
+    }
+  }
+
+  .container {
+    position: relative;
+
+    .union {
+
+    }
+  }
+
+  &-wrapper {
+
+  }
+
+  &-content {
+    max-width: max(1200px * var(--scale));
+
+    @include scale-05 {
+      max-width: none;
+    }
+  }
+
+  &__heading {
+    margin: 0 0 20px;
+
+    @include typography-ctabs-heading;
+  }
+
+  &__desc {
+    margin: 0 0 max(30px, (63px * 0.85 * var(--scale)));
+
+    @include typography-ctabs-desc;
+
+    max-width: calc(1200px * var(--scale));
+
+    @include scale-05 {
+      max-width: 480px;
+      padding-right: 60px;
+    }
+
+    @include mobile {
+      //max-width: 320px;
+      margin-bottom: 30px;
+    }
+
+    @include mobile-sm {
+      //max-width: 180px;
+    }
+  }
+
+  &__tabs {
+
+    .wpcf7-form {
+      --half-gap: 30px;
+      --field-gap: 20px;
+      --btn-gap: 40px;
+
+      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      max-width: calc(1030px * var(--scale));
+
+
+
+      @include scale-05 {
+        max-width: none;
+      }
+
+      @include mobile {
+        --half-gap: 10px;
+        --field-gap: 10px;
+
+        grid-gap: var(--half-gap);
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      &-control-wrap {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        height: 100%;
+
+        textarea {
+          height: 100%;
+        }
+
+        @include mobile {
+          max-width: 100%;
+        }
+      }
+
+      &-col {
+
+        &--half {
+          grid-column: span 1;
+
+          &:nth-child(2) {
+            padding-right: max((var(--half-gap) * 0.25), (var(--half-gap) * 0.5 * var(--scale)));
+
+            gap: max((var(--field-gap) * 0.5), (var(--field-gap) * var(--scale)));
+            display: flex;
+            flex-direction: column;
+
+            @include mobile {
+              padding-righ: 0;
+            }
+          }
+
+          &:nth-child(3) {
+            padding-left: max((var(--half-gap) * 0.25), (var(--half-gap) * 0.5 * var(--scale)));
+
+            @include mobile {
+              padding-left: 0;
+            }
+          }
+        }
+
+        &--full {
+          grid-column: span 2;
+
+          display: flex;
+          justify-content: space-between;
+
+          @include mobile {
+            grid-column: span 1;
+            flex-wrap: wrap;
+          }
+
+          // Acceptance Checkbox
+          .wpcf7-form-control-wrap {
+            margin-top: var(--field-gap);
+            height: auto;
+          }
+
+          .gradient-wrapper {
+            margin-top: var(--btn-gap)
+          }
+        }
+      }
+
+      .wpcf7-response-output {
+        grid-column: span 2;
+
+        @include mobile {
+          grid-column: span 1;
+        }
+      }
+    }
+  }
+
+  &__mailto {
+    //margin-top: max(60px, (128px * 0.5 * var(--scale)));
+    //margin-top: 60px;
+    margin-top: 25px;
+
+    margin-bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    @include typography-ctabs-mailto;
+
+    @include mobile {
+      margin-top: 60px;
+    }
+
+    span:last-child {
+      display: flex;
+      align-items: center;
+
+      a {
+        margin-left: max(5px, (10px * var(--scale)));
+        text-decoration: none;
+        color: $color__typography;
+
+        transition: color ease .3s;
+
+        &:hover,
+        &:focus {
+          color: $color__main;
+        }
+      }
+    }
+  }
+}

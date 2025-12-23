@@ -1,0 +1,186 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.tagline-section {
+  --section-pt: max(50px, (60px * var(--scale)));
+  --section-pb: max(50px, (60px * var(--scale)));
+  --section-px: 16px;
+
+  background: $color__prominence-lighten;
+  padding: var(--section-pt) var(--section-px) var(--section-pb);
+
+  position: relative;
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    content: "";
+
+    position: absolute;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &:before {
+    top: -160px;
+    left: calc((min(100vw, 1920px) - var(--container-w)) - 600px);
+
+    background-image: url("../images/icon-tagline-before.svg");
+    width: 694px;
+    height: 599px;
+
+    display: none;
+  }
+
+  &:after {
+    bottom: 0;
+    right: calc((min(100vw, 1920px) - var(--container-w)) - 450px);
+
+    background-image: url("../images/icon-tagline-after.svg");
+    width: 490px;
+    height: 407px;
+  }
+
+  .container {
+    --container-px: 0px;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    margin: 0 0 max(18px, (30px * var(--scale)));
+
+    @include typography-tagline-heading;
+    text-align: center;
+
+    @include mobile {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__desc {
+    margin: 0 0 max(30px, (70px * var(--scale)));
+
+    @include typography-tagline-desc;
+
+    p {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      margin-bottom: 30px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__ctas {
+    gap: max(10px, (54px * var(--scale)));
+    display: flex;
+
+    .btn {
+
+      &:before {
+        display: none;
+      }
+
+      &--white-outlined {
+        --btn-c: #{$color__typography};
+        --btn-c-hover: #{$color__typography};
+
+        --btn-bgc: #{$white};
+        --btn-bgc-hover: #{$white};
+
+        background: none;
+        padding: 0;
+
+        transform: scale(1);
+        transition: transform ease .3s;
+
+        .inside {
+          border-radius: 50px;
+          border: 2px solid var(--btn-c);
+          padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
+
+          color: var(--btn-c);
+          background-color: var(--btn-bgc);
+
+          gap: var(--btn-gap);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &:hover,
+        &:focus {
+          background: none;
+
+          transform: scale(1.1);
+          -webkit-transform: scale(1.1, 1.1);
+        }
+      }
+
+      &--has-svg {
+        --btn-pr: max(42px, (44px * var(--scale)));
+        //margin-right: 5px;
+
+        svg {
+          width: max(12px, (17px * var(--scale)));
+          height: auto;
+        }
+      }
+    }
+
+    @include mobile {
+      gap: 10px;
+      flex-direction: column;
+
+      width: 100%;
+
+      .btn {
+
+        .inside {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+
+    // Hack - Make CTAs same width
+    .btn .inside {
+      justify-content: center;
+      min-width: 325px;
+
+      @include scale-01 {
+        min-width: 295px;
+      }
+      @include scale-02 {
+        min-width: 285px;
+      }
+      @include scale-03 {
+        min-width: 270px;
+      }
+      @include scale-04 {
+        min-width: 245px;
+      }
+      @include scale-05 {
+        min-width: 230px;
+      }
+    }
+  }
+}

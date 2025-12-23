@@ -1,0 +1,203 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.quote-section {
+  --avatar-gradient-top: 30px; // -30px avatar gradient top
+  --avatar-gradient-bot: 40px; // -40px avatar gradient bot
+
+  --wrapper-pt: max(31px, ((188px - var(--avatar-gradient-top)) * var(--scale)));
+  --wrapper-pb: max(96px, ((170px - var(--avatar-gradient-bot)) * var(--scale)));
+  --wrapper-px: calc(108px * var(--scale));
+  --content-gap: 0px;
+  --content-left-w: max(400px, calc(600px * var(--scale))); // 600px
+  --content-right-w: calc(600px * var(--scale)); // 600px
+
+  background-color: $white;
+
+  @include scale-05 {
+    --wrapper-px: 0px;
+    --content-right-w: calc(100% - var(--content-left-w));
+  }
+
+  @include mobile {
+    --wrapper-pt: 31px;
+    --wrapper-pb: 96px;
+  }
+
+  .container {
+
+  }
+
+  &-wrapper {
+    padding: var(--wrapper-pt) var(--wrapper-px) var(--wrapper-pb);
+  }
+
+  &-content {
+    gap: var(--content-gap);
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      flex-direction: column;
+
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    &-left,
+    &-right {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    &-left {
+      flex-basis: var(--content-left-w);
+      max-width: var(--content-left-w);
+
+      padding-top: calc(var(--avatar-gradient-top) + 25px);
+
+      @include tablet {
+        padding-top: 0;
+        flex-basis: auto;
+        max-width: none;
+      }
+    }
+
+    &-right {
+      flex-basis: var(--content-right-w);
+      max-width: var(--content-right-w);
+
+      @include scale-05 {
+        display: flex;
+        align-items: flex-end;
+      }
+
+      @include tablet {
+        flex-basis: auto;
+        max-width: none;
+
+        margin-top: 33px;
+        padding-top: 16px;
+        border-top: 1px solid $color__border;
+      }
+    }
+  }
+
+  .svg-icon {
+    color: $color__border;
+
+    margin-bottom: max(30px, (47.5px * var(--scale)));
+
+    max-width: max(27px, (43px * var(--scale)));
+    height: auto;
+  }
+
+  &__title {
+    font-size: max(18px, (24px * var(--scale)));
+    font-weight: 600;
+    line-height: 1.58333;
+
+    margin: 0 0 max(21px, (32px * var(--scale)));
+  }
+
+  &__desc {
+    font-size: max(16px, (20px * var(--scale)));
+    font-weight: 400;
+    line-height: 1.7;
+
+    margin: 0;
+  }
+
+  &__avatar {
+    position: relative;
+    transform: translateX(7%);
+
+    @include scale-05 {
+      transform: translateX(7%) translateY(8%);
+    }
+
+    @include tablet {
+      transform: none;
+
+      gap: 13px;
+      display: flex;
+      align-items: center;
+    }
+
+    &-desktop {
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &-mobile {
+      display: none;
+
+      @include tablet {
+        display: flex;
+      }
+    }
+
+    &-author {
+      position: absolute;
+
+      bottom: 8%;
+      left: 7%;
+      width: calc(100% - 14%);
+
+      gap: max(2px, (4px * var(--scale)));
+      display: flex;
+      flex-direction: column;
+
+      padding-top: max(37px, (58px * var(--scale)));
+      padding-left:  max(23px, (35px * var(--scale)));
+      padding-bottom: max(16px, (26px * var(--scale)));
+
+      border-radius: max(13px, (20px * var(--scale)));
+      background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+
+      @include tablet {
+        position: relative;
+        bottom: auto;
+        left: auto;
+
+        border-radius: 0;
+        background: none;
+
+        padding: 0;
+      }
+
+      // Author
+      span {
+        font-weight: 400;
+        font-size: max(14px, (18px * var(--scale)));
+        line-height: max(14px , (22px * var(--scale)));
+        color: $color__search;
+
+        @include tablet {
+          line-height: 22px;
+
+        }
+
+        &:nth-child(1) {
+          font-weight: 600;
+          line-height: max(15.5px , (24px * var(--scale)));
+
+          color: $white;
+          letter-spacing: -0.5px;
+
+          @include tablet {
+            line-height: 24px;
+            color: $color__typography;
+          }
+        }
+
+        // Position
+        &:nth-child(2) {
+
+        }
+      }
+    }
+  }
+}

@@ -6,9 +6,29 @@ optgroup,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
-	font-size: 1rem;
-	line-height: $font__line-height-body;
+	//font-size: 1rem;
+	//line-height: $font__line-height-body;
+
+	@include p;
 }
 
 @import "headings";
-@import "copy";
+//@import "copy";
+
+
+h1, .h1 {
+	@include h1;
+}
+
+h2, .h2 {
+	@include h2;
+}
+
+h3, .h3 {
+	@include h3;
+}
+
+p {
+	@include p;
+	margin-top: 0;
+}

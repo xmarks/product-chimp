@@ -1,0 +1,79 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.map-section {
+
+  &-wrapper {
+
+  }
+
+  &-content {
+    position: relative;
+    display: flex;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    min-height: 340px;
+    max-height: max(340px, (800px * var(--scale)));
+
+    @include mobile {
+      max-height: 340px;
+    }
+  }
+
+  &__address {
+    --address-pt: max(21px, (74px * var(--scale)));
+    --address-pr: max(18px, (56px * var(--scale)));
+    --address-pb: max(22px, (70px * var(--scale)));
+    --address-pl: max(18px, (70px * var(--scale)));
+
+    @include tablet {
+      --address-pt: 21px;
+      --address-pr: 18px;
+      --address-pb: 22px;
+      --address-pl: 18px;
+
+      width: 100%;
+      max-width: 342px;
+    }
+
+    position: absolute;
+    top: max(15px, (35px * var(--scale)));
+    left: max(16px, (27px * var(--scale)));
+
+    border-radius: 15px;
+    background-color: $color__prominence-lighten;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    padding: var(--address-pt) var(--address-pr) var(--address-pb) var(--address-pl);
+
+    gap: 10px;
+    display: flex;
+    align-items: center;
+
+    @include typography-map-address;
+    color: $color__typography;
+    text-decoration: none;
+
+    transition: color ease .3s;
+
+    &:visited {
+      color: $color__typography;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color__typography-lighten;
+    }
+
+    svg {
+      fill: none;
+      stroke: none;
+
+      max-width: max(30px, (43px * var(--scale)));
+    }
+  }
+}

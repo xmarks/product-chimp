@@ -1,20 +1,54 @@
-$color__background-body: #fff;
+// Figma Colors
+$color__typography: #2C3870;
+$color__typography-lighten: lighten($color__typography, 5%);
+$color__light_typo: #7077A0;
+$color__prominence: #31D0AA;
+$color__prominence-lighten: #F2FCF9;
+
+$color__main: #5A2AFA;
+$color__main-lighten: lighten($color__main, 5%);
+$color__second_purple: #947CF4;
+$color__btn_bg: #FE8268;
+$color__btn_bg-lighten: #FFA585;
+
+$color__stars: #FDB241;
+
+$color__border: #E4ECFF;
+
+$color__bg: #F6F6F6;
+$color__bg-fields: #F6F9FF;
+$white: #FFFFFF;
+
+$color__blue: #2964FB;
+$color__search: #A3AED0;
+$wpp__border-color: #9AB9B0; // ToDo: color not present in Figma palette
+$hero_tag_bg: #E2D9FF;
+
+
+// Theme Colors
+$color__background-body: $color__bg;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
+$color__background-button-hover: lighten(#e6e6e6, 5%);
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #4169e1; //royalblue
-$color__link-visited: #800080; //purple
-$color__link-hover: #191970; //midnightblue
-$color__text-main: #404040;
+//$color__link: #4169e1; //royalblue
+$color__link: $color__blue;
+//$color__link-visited: #800080; //purple
+$color__link-visited: lighten($color__main, 10%);
+//$color__link-hover: #191970; //midnightblue
+$color__link-hover: $color__main;
+//$color__text-main: #404040;
+$color__text-main: $color__typography;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+

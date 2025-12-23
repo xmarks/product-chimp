@@ -1,0 +1,190 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.hero-section {
+  --spt: max(7px, (69px * var(--scale)));
+  --spr: 0px;
+  --spb: 0px;
+  --spl: 0px;
+
+  padding: var(--spt) var(--spr) var(--spb) var(--spl);
+
+  //@include layout-1200 {
+  //  --spt: 92px;
+  //}
+
+  @include mobile {
+    --spt: 7px;
+  }
+
+  .container {
+    --container-w: max(768px, (1620px * var(--scale)));
+
+    @include tablet {
+      --container-w: 100%;
+      --container-px: 0px;
+    }
+
+    position: relative;
+
+    //@include layout-1200 {
+    //  --container-w: 1250px;
+    //}
+
+    //.union {
+    //  position: absolute;
+    //  top: calc(620px * var(--scale) * -1);
+    //  right: calc(380px * var(--scale) * -1);
+    //
+    //  @include mobile {
+    //    top: calc(620px * 0.35 * -1);
+    //    right: calc(380px * 0.35 * -1);
+    //  }
+    //}
+  }
+
+  &-wrapper {
+
+  }
+
+  &-content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    max-width: max(360px, (1045px * var(--scale)));
+    margin: 0;
+
+    @include typography-hero-heading-fs;
+    font-weight: 400;
+    text-align: center;
+
+    @include mobile {
+      max-width: 360px;
+    }
+  }
+
+  &__tagline {
+    margin: max(20px, (34px * var(--scale))) 0 0;
+
+    @include typography-hero-tagline-fs;
+    font-weight: 400;
+    text-align: center;
+
+    .br-m {
+      //display: none;
+    }
+
+    @include mobile {
+      margin: 20px 0 0;
+
+      br {
+        display: none;
+
+        &.br-m {
+          //display: inline;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    // Override - reduce Hero CTA by 10% => ToDo: Desktop only - above 1731px only
+    --btn-pt: max(15px, (21px * 0.9 * var(--scale)));
+    --btn-pr: max(41px, (43px * 0.9 * var(--scale)));
+    --btn-pb: max(15px, (21px * 0.9 * var(--scale)));
+    --btn-pl: max(41px, (77px * 0.9 * var(--scale)));
+
+    //--btn-gap: calc((7px + 10px) * 0.9);
+    --btn-gap: max(18px, (26px * 0.9 * var(--scale)));
+
+    --h-cta-fs: max(16px, 24px * 0.9 * var(--scale));
+
+    @include tablet {
+      --btn-pt: 15px;
+      --btn-pr: 41px;
+      --btn-pb: 15px;
+      --btn-pl: 41px;
+    }
+
+    svg {
+      width: max(12px, (17px * 0.9 * var(--scale)));
+    }
+
+    //@include responsive {
+    //  --h-cta-fs: max(16px, 24px * var(--scale));
+    //
+    //  svg {
+    //    width: max(12px, (17px * var(--scale)));
+    //  }
+    //}
+
+    margin: 42px 0 0; // does not change
+    z-index: 1;
+
+
+    //--btn-pt: 23px;
+    //--btn-pr: 45px;
+    //--btn-pb: 23px;
+    //--btn-pl: 79px;
+    //
+    //--btn-gap: calc(7px + 10px);
+    //
+    //--btn-c: #{$color__typography};
+    //--btn-c-hover: #{$color__typography};
+    //
+    //--btn-bgc: #{$color__btn_bg};
+    //--btn-bgc-hover: #{$color__btn_bg-lighten};
+    //
+    //
+    //@include typography-hero-cta-fs;
+    //font-weight: 500;
+    //
+    //svg {
+    //  margin-right: 5px;
+    //}
+  }
+
+  &__img {
+    display: none;
+
+    &--desktop {
+      display: flex;
+      // transform: translateY(-45px);
+      margin-top: calc(45px * var(--scale) * -1);
+
+      max-width: calc(100% * 0.9 * var(--scale)); // client request to reduce
+
+      @include scale-04 {
+        max-width: 90%;
+      }
+
+      @include tablet {
+        margin-top: 0;
+        max-width: 100%;
+      }
+
+      @include mobile {
+        display: none;
+      }
+
+      //@include layout-1200 {
+      //  transform: none;
+      //
+      //  margin: 34px 0 0;
+      //}
+    }
+
+    &--mobile {
+      @include mobile {
+        display: flex;
+
+        margin-top: 36px;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+
+.widget-cta-section {
+  padding: 34px 20px;
+  border-radius: 8px;
+  background-color: $color__btn_bg-lighten;
+
+  &__heading {
+    font-size: 24px;
+    line-height: 1.35;
+
+    margin: 0 0 51px;
+  }
+
+  .btn {
+
+    .inside {
+      --btn-pt: 15px;
+      --btn-pr: 45px;
+      --btn-pb: 15px;
+      --btn-pl: 49px;
+      //display: flex;
+      //align-items: center;
+
+      font-size: 18px;
+    }
+
+    &--white {
+      //color: $color__typography;
+      //background-color: $white;
+      //border: 1px solid $white;
+
+      &:hover,
+      &:focus {
+        //background-color: transparent;
+      }
+    }
+  }
+}
