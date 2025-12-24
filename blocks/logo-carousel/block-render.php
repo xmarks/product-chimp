@@ -38,9 +38,9 @@ if ($is_preview) {
 }
 
 // Load SplideJS
-wp_enqueue_style('splidejs');
-wp_enqueue_script('splidejs');
-wp_enqueue_script('splidejs-autoscroll');
+wp_enqueue_style('plugins.splidejs.core');
+wp_enqueue_script('plugins.splidejs.splide');
+wp_enqueue_script('plugins.splidejs.splide-extension-auto-scroll');
 
 if (isset($block['data']['preview_image_help'])) :
     $fileUrl = str_replace(get_stylesheet_directory(), '', dirname(__FILE__),); ?>
