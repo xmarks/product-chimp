@@ -156,7 +156,7 @@
     &--desktop {
       display: flex;
       // transform: translateY(-45px);
-      margin-top: calc(80px * var(--scale) * -1);
+      margin-top: calc(102px * var(--scale) * -1);
 
       max-width: calc(100% * 0.9 * var(--scale)); // client request to reduce
 

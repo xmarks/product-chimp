@@ -2,12 +2,12 @@
 
 .logo-carousel-section {
   //--section-pt: calc(130px - 45px); // 45px transalteY of Hero Image
-  --section-pt: max(53px, (130px * var(--scale)));
-  --section-pb: max(46px, (67px * var(--scale)));
+  --section-pt: max(40px, (138px * var(--scale)));
+  --section-pb: max(40px, (94px * var(--scale)));
 
   --slide-px: max(15px, (28px * var(--scale)));
 
-  --slide-img-h: max(35px, (65px * var(--scale)));
+  --slide-img-h: max(24px, (48px * var(--scale)));
 
   padding: var(--section-pt) 0 var(--section-pb);
 
@@ -17,9 +17,9 @@
   //}
 
   @include mobile {
-    --section-pt: 53px;
-    --section-pb: 46px;
-    --slide-img-h: 35px;
+    --section-pt: 40px;
+    --section-pb: 40px;
+    --slide-img-h: 24px;
   }
 
   .container {
@@ -28,12 +28,12 @@
   }
 
   &-wrapper {
-    padding-top: max(30px, (45px * var(--scale)));
-    padding-bottom: max(11px, (21px * var(--scale)));
+    //padding-top: max(30px, (45px * var(--scale)));
+    //padding-bottom: max(11px, (21px * var(--scale)));
 
     @include mobile {
-      padding-top: 25px;
-      padding-bottom: 11px;
+      //padding-top: 25px;
+      //padding-bottom: 11px;
     }
 
     //@include layout-1200 {
