@@ -10,7 +10,7 @@
   --f-copy-pt: max(19px, (47px * var(--scale)));
   --f-copy-nav-gap: max(16px, (42px * var(--scale)));
 
-  background-color: $color__bg-fields;
+  //background-color: $color__bg-fields;
   padding: var(--f-pt) 0 var(--f-pb);
 
   @include mobile {

@@ -15,7 +15,8 @@ $color__stars: #FDB241;
 
 $color__border: #E4ECFF;
 
-$color__bg: #F6F6F6;
+//$color__bg: #F6F6F6;
+$color__bg: linear-gradient(0deg, rgba(242, 239, 230, 0.50) 0%, rgba(242, 239, 230, 0.50) 100%), #FFF;
 $color__bg-fields: #F6F9FF;
 $white: #FFFFFF;
 

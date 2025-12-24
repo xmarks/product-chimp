@@ -178,7 +178,10 @@ function product_chimp_setup(): void {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'product-chimp' ),
+            'menu-1' => esc_html__('Primary', 'product-chimp'),
+            'menu-2' => esc_html__('Login', 'product-chimp'),
+            'menu-3' => esc_html__('Getting Started', 'product-chimp'),
+            'menu-5' => esc_html__('Copyright Menu', 'product-chimp'),
 		)
 	);
 

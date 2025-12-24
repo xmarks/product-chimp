@@ -10,4 +10,3 @@
  * @package Product_Chimp
  */
 
-console.log( 'theme customizer script loaded...' );
