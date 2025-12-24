@@ -6,3 +6,4 @@
  * @package Product_Chimp
  */
 
+console.log( 'theme main script loaded...' );

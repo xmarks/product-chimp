@@ -31,9 +31,9 @@
     &-footer {
       --f-pt: var(--f-pb);
 
-      position: relative;
+      //position: relative;
 
-      background: linear-gradient(180deg, #E5EDFF 0%, #F6F9FF 100%);
+      //background: linear-gradient(180deg, #E5EDFF 0%, #F6F9FF 100%);
 
       @include mobile {
         --f-pt: 68px;

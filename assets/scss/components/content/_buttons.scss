@@ -12,7 +12,7 @@
   --btn-c: #fff;
   --btn-c-hover: #{$color__link-hover};
   --btn-bgc: #{$color__main};
-  --btn-bgc-hover: #{$color__second_purple};
+  --btn-bgc-hover: #{$color__btn-hover};
 
   padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
 
@@ -61,6 +61,7 @@
     --btn-gap: max(18px, (26px * 0.9 * var(--scale)));
 
     @include typography-hero-cta-fs;
+
     font-weight: 500;
   }
 
@@ -80,23 +81,6 @@
     transform: scale(1);
     transition: transform ease .3s;
 
-    padding: 0;
-
-    .inside {
-      padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
-
-      gap: var(--btn-gap);
-      display: flex;
-      align-items: center;
-
-      overflow: hidden;
-      border-radius: 50px;
-      color: var(--btn-c);
-      background-color: var(--btn-bgc);
-      border: 2px solid var(--btn-bgc);
-
-      z-index: 1;
-    }
 
     &:hover,
     &:focus {
@@ -105,32 +89,6 @@
       transform: scale(1.1);
       overflow: visible!important;
       -webkit-transform:scale(1.1, 1.1);
-    }
-
-    @include mobile {
-      position: relative;
-    }
-
-    &:before {
-      @include mobile {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 5%;
-        width: 90%;
-        bottom: 0;
-
-        border-radius: 44px;
-        background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
-        filter: blur(20px);
-
-        overflow: visible!important;
-
-        -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-      }
     }
 
     &-outline {
@@ -183,6 +141,35 @@
   &--has-svg {
     --btn-pr: max(42px, (44px * var(--scale)));
     //margin-right: 5px;
+
+    padding: 0;
+
+    transform: scale(1);
+    transition: transform ease .3s;
+
+    .inside {
+      padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
+
+      gap: var(--btn-gap);
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+      border-radius: 50px;
+      color: var(--btn-c);
+      background-color: var(--btn-bgc);
+      border: 2px solid var(--btn-bgc);
+
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      transform: scale(1.1);
+      overflow: visible!important;
+      -webkit-transform:scale(1.1, 1.1);
+    }
 
     svg {
       width: max(12px, (17px * var(--scale)));
