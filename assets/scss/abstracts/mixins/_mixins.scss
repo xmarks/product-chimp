@@ -47,12 +47,18 @@
 
 // Typography Mixins - Block => Hero
 @mixin typography-hero-heading-fs {
-	font-size: var(--h-heading-fs);
-	line-height: 1.208;
+  font-size      : var(--h-heading-fs);
+  line-height    : 1;
+  letter-spacing : max(-2px, (-4.5px * var(--scale)));
 }
+
 @mixin typography-hero-tagline-fs {
 	font-size: var(--h-tagline-fs);
 	line-height: 1.375;
+
+  @include mobile {
+	line-height: 1.4;
+  }
 }
 @mixin typography-hero-cta-fs {
 	font-size: var(--h-cta-fs);

@@ -71,6 +71,7 @@
   &__tagline {
     margin: max(20px, (34px * var(--scale))) 0 0;
 
+    font-family    : var(--font__main);
     @include typography-hero-tagline-fs;
     font-weight: 400;
     text-align: center;
