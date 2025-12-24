@@ -210,8 +210,8 @@ function product_chimp_setup(): void {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 44,
+			'width'       => 150,
 			'flex-width'  => true,
 			'flex-height' => true,
 		)

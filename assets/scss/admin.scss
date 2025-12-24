@@ -166,3 +166,83 @@
   @import "blocks/block-contact-cta";
 }
 
+// Customizer Styles - Admin Section
+#customize-controls {
+
+  .customize-control {
+
+    // CSS style checkboxes as toggle switches
+    // src: https://codepen.io/chriscoyier/pen/JjozJLv
+    &.customize-control-checkbox {
+
+      // wrapper
+      .customize-inside-control-row {
+        margin-left: 0;
+        display: flex;
+
+        input {
+          display: none;
+
+          &:checked {
+
+            + label {
+
+              &:before {
+                background-color: #89c12d;
+              }
+
+              &:after {
+                left: 24px;
+              }
+            }
+          }
+        }
+
+        label {
+          position: relative;
+
+          padding-left: calc(48px + 5px);
+
+          &:before,
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            cursor: pointer;
+          }
+
+          &:before {
+            top: 0;
+            left: 0;
+            width: 48px;
+            height: 24px;
+
+            background-color: #dedede;
+            border-radius: 9999em;
+            -webkit-transition: background-color 0.25s ease;
+            transition: background-color 0.25s ease;
+          }
+
+          &:after {
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+            -webkit-transition: left 0.25s ease;
+            transition: left 0.25s ease;
+          }
+        }
+      }
+    }
+  }
+
+  // CodeMirror Styles
+  .customize-control-code_editor {
+    .CodeMirror-wrap {
+      height: 100%;
+    }
+  }
+}
