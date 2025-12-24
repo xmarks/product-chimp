@@ -1,0 +1,52 @@
+{
+  "name": "pc/logo-carousel",
+  "title": "Logo Carousel Section",
+  "description": "Product Chimp Logo Carousel section.",
+  "style": "",
+  "category": "product-chimp",
+  "icon": "dashicons dashicons-images-alt2",
+  "keywords": [
+    "logo, logos, carousel, logo carousel"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render.php"
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "data": {
+        "preview_image_help": "block-image-preview.png"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ],
+      "units": [
+        "px"
+      ]
+    },
+    "color": {
+      "background": true,
+      "gradients": true
+    },
+    "anchor": true
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  }
+}
