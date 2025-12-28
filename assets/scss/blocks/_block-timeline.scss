@@ -171,6 +171,8 @@
 
 	  @include typography-timeline-item-heading-fs;
 	  font-weight : 400;
+
+	  color: $color__main;
 	}
 
 	&__desc {

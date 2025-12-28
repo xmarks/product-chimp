@@ -69,6 +69,10 @@
   // Testimonial - admin only styles
   .testimonial-section-splide {
     visibility: visible;
+
+    &:before {
+      background-image: url("../images/testimonials_bg.svg");
+    }
   }
   .testimonial-section-splide__track {
     position: relative;
