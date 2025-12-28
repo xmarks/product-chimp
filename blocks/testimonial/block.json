@@ -1,0 +1,53 @@
+{
+  "name": "pc/testimonial",
+  "title": "Testimonial Section",
+  "description": "Product Chimp Testimonial section.",
+  "editorStyle": [ "plugins.splidejs.core" ],
+  "editorScript": [ "plugins.splidejs.splide" ],
+  "category": "product-chimp",
+  "icon": "dashicons dashicons-testimonial",
+  "keywords": [
+    "testimonial, testimonials"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render.php"
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "data": {
+        "preview_image_help": "block-image-preview.png"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ],
+      "units": [
+        "px"
+      ]
+    },
+    "color": {
+      "background": true,
+      "gradients": true
+    },
+    "anchor": true
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  }
+}

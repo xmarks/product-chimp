@@ -67,6 +67,9 @@
 
   @import "blocks/block-testimonial";
   // Testimonial - admin only styles
+  .testimonial-section-splide {
+    visibility: visible;
+  }
   .testimonial-section-splide__track {
     position: relative;
   }

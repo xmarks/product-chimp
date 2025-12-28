@@ -2,60 +2,60 @@
 @import '../abstracts/variables/colors';
 
 .testimonial-section {
-  --section-pt: max(3px, (78px * var(--scale)));
+  --section-pt                    : max(3px, (78px * var(--scale)));
 
-  --section-pb: max((120px - var(--section-splide-track-pb)), (((238px - var(--section-splide-track-pb)) * var(--scale))));
+  --section-pb                    : max((120px - var(--section-splide-track-pb)), (((238px - var(--section-splide-track-pb)) * var(--scale))));
 
-  --section-splide-mt: max((100px - var(--section-splide-track-pt)), (((175px - var(--section-splide-track-pt)) * var(--scale))));
+  --section-splide-mt             : max((100px - var(--section-splide-track-pt)), (((175px - var(--section-splide-track-pt)) * var(--scale))));
 
-  --section-splide-track-pt: 29px;
-  --section-splide-track-pl: 24px;
-  --section-splide-track-pr: 32px;
-  --section-splide-track-pb: 40px;
+  --section-splide-track-pt       : 29px;
+  --section-splide-track-pl       : 24px;
+  --section-splide-track-pr       : 32px;
+  --section-splide-track-pb       : 40px;
 
-  --section-splide-list-gap: max(16px, (37px * var(--scale)));
+  --section-splide-list-gap       : max(16px, (37px * var(--scale)));
 
-  --section-splide-slide-w: 31.62%; // 455px
-  --section-splide-slide-pt: 33px;
-  --section-splide-slide-pr: max(35px, (49px * var(--scale)));
-  --section-splide-slide-pb: max(55px, (100px * var(--scale)));
-  --section-splide-slide-pl: max(35px, (52px * var(--scale)));
+  --section-splide-slide-w        : 31.62%; // 455px
+  --section-splide-slide-pt       : 33px;
+  --section-splide-slide-pr       : max(35px, (49px * var(--scale)));
+  --section-splide-slide-pb       : max(55px, (100px * var(--scale)));
+  --section-splide-slide-pl       : max(35px, (52px * var(--scale)));
 
-  --section-splide-slide-quote-mt: 47px; // does not change
+  --section-splide-slide-quote-mt : 47px; // does not change
 
-  --section-splide-arrow-w: 56px;
+  --section-splide-arrow-w        : 56px;
 
 
-  padding: var(--section-pt) 0 var(--section-pb);
+  padding                         : var(--section-pt) 0 var(--section-pb);
 
   @include scale-03 {
-    --section-pb: calc(135px - var(--section-splide-track-pb));
+	--section-pb              : calc(135px - var(--section-splide-track-pb));
 
-    --section-splide-track-pl: 0px;
+	--section-splide-track-pl : 0px;
 
-    --section-splide-list-gap: 20px;
-    --section-splide-slide-w: 45.32%; // 455px
+	--section-splide-list-gap : 20px;
+	--section-splide-slide-w  : 45.32%; // 455px
   }
 
   @include tablet {
-    --section-splide-slide-w: 70%;
+	--section-splide-slide-w : 70%;
   }
 
   @include mobile {
-    --section-pt: 53px;
-    --section-pb: 68px;
+	--section-pt              : 53px;
+	--section-pb              : 68px;
 
-    //--section-splide-track-pt: 0px;
-    --section-splide-track-pl: 0px;
-    //--section-splide-track-pb: 0px;
+	//--section-splide-track-pt: 0px;
+	--section-splide-track-pl : 0px;
+	//--section-splide-track-pb: 0px;
 
 
-    --section-splide-slide-w: 100%;
+	--section-splide-slide-w  : 100%;
   }
 
   .container {
-    --container-w: calc(1495px * var(--scale));
-    --container-px: 0px;
+	--container-w  : calc(1495px * var(--scale));
+	--container-px : 0px;
   }
 
   &-wrapper {
@@ -64,220 +64,238 @@
 
   // Section Heading
   &__heading {
-    margin: 0;
+	margin     : 0;
 
-    @include typography-testimonial-heading;
-    text-align: center;
+	@include typography-testimonial-heading;
+	text-align : center;
 
-    @include mobile {
-      max-width: 360px;
-      margin: 0 auto;
-    }
+	color: $color__main;
+
+	@include mobile {
+	  max-width : 360px;
+	  margin    : 0 auto;
+	}
   }
 
   &__tagline {
-    margin: 5px 0 0;
+	margin          : 5px 0 0;
 
-    @include typography-testimonial-tagline;
-    text-align: center;
+	@include typography-testimonial-tagline;
+	text-align      : center;
 
-    display: flex;
-    justify-content: center;
+	display         : flex;
+	justify-content : center;
 
-    @include tablet {
-      margin-top: 15px;
-    }
+	@include tablet {
+	  margin-top : 15px;
+	}
 
-    @include mobile {
-      max-width: 360px;
-      margin: 0 auto;
-    }
+	@include mobile {
+	  max-width : 360px;
+	  margin    : 0 auto;
+	}
   }
 
   &-splide {
-    margin: var(--section-splide-mt) 0 0;
+	margin   : var(--section-splide-mt) 0 0;
 
-    position: relative;
+	position : relative;
 
-    @include mobile {
-      margin-top: 52px;
+	@include mobile {
+	  margin-top     : 52px;
 
 
-      padding-top: calc(48px - var(--section-splide-track-pt));
-      padding-bottom: calc(52px - var(--section-splide-track-pb));
-    }
+	  padding-top    : calc(48px - var(--section-splide-track-pt));
+	  padding-bottom : calc(52px - var(--section-splide-track-pb));
+	}
 
-    &:before {
-      content: "";
+	&:before {
+	  content             : "";
 
-      position: absolute;
-      top: -55px;
-      left: 50%;
-      transform: translateX(-50%);
+	  position            : absolute;
+	  top                 : -70px;
+	  left                : 50%;
+	  transform           : translateX(-50%);
 
-      width: 100%;
-      height: 532px;
-      max-width: max(910px, (1020px * var(--scale)));
+	  //width               : 100%;
+	  //height              : 581px;
+	  //max-width           : max(910px, (1020px * var(--scale)));
 
-      opacity: 0.55;
-      border-radius: 9px;
-      background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
+	  aspect-ratio        : 1051/581;
+	  width               : 100%;
+	  max-width           : max(910px, (1051px * var(--scale)));
 
-      //@include layout-1200 {
-      //  max-width: 90%;
-      //}
+	  //opacity: 0.55;
+	  //border-radius: 9px;
+	  //background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
 
-      @include mobile {
-        top: 0;
-        bottom: -52px;
-        height: 100%;
-      }
-    }
+	  background-image    : url("../../images/testimonials_bg.svg");
+	  background-repeat   : no-repeat;
+	  background-size     : cover;
+	  background-position : center;
 
-    &__track {
-      padding-top: var(--section-splide-track-pt);
-      padding-right: var(--section-splide-track-pr) !important;
-      padding-bottom: var(--section-splide-track-pb);
-      padding-left: var(--section-splide-track-pl) !important;
-    }
+	  //@include layout-1200 {
+	  //  max-width: 90%;
+	  //}
 
-    &__list {
-      // gap: var(--section-splide-list-gap);
-    }
+	  @include mobile {
+		top    : 0;
+		bottom : -52px;
+		height : 100%;
+	  }
+	}
 
-    &__slide {
-      padding: var(--section-splide-slide-pt) var(--section-splide-slide-pr) var(--section-splide-slide-pb) var(--section-splide-slide-pl);
+	&__track {
+	  padding-top    : var(--section-splide-track-pt);
+	  padding-right  : var(--section-splide-track-pr) !important;
+	  padding-bottom : var(--section-splide-track-pb);
+	  padding-left   : var(--section-splide-track-pl) !important;
+	}
 
-      border-radius: 8px;
-      background-color: $white;
-      //box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.10);
+	&__list {
+	  // gap: var(--section-splide-list-gap);
+	}
 
-      margin-right: var(--section-splide-list-gap);
+	&__slide {
+	  padding          : var(--section-splide-slide-pt) var(--section-splide-slide-pr) var(--section-splide-slide-pb) var(--section-splide-slide-pl);
 
-      max-width: var(--section-splide-slide-w);
+	  border-radius    : 8px;
+	  background-color : $white;
+	  //box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.10);
 
-      .author-grid {
-        display: grid;
-        grid-template-areas:
+	  margin-right     : var(--section-splide-list-gap);
+
+	  max-width        : var(--section-splide-slide-w);
+
+	  .author-grid {
+		display               : grid;
+		grid-template-areas   :
                 "avatar author"
                 "avatar position"
                 "stars stars";
-        grid-template-columns: calc(61px + 13px) 1fr; // 13 => image margin-right
-      }
-    }
+		grid-template-columns : calc(61px + 13px) 1fr; // 13 => image margin-right
+	  }
+	}
 
-    &__img {
-      margin: 0 13px 7px 0;
-      grid-area: avatar;
+	&__img {
+	  margin      : 0 13px 7px 0;
+	  grid-area   : avatar;
 
-      display: flex;
-      align-items: flex-end;
+	  display     : flex;
+	  align-items : flex-end;
 
-      img {
-        border-radius: 50%;
-        overflow: hidden;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-      }
-    }
+	  img {
+		border-radius : 50%;
+		overflow      : hidden;
+		aspect-ratio  : 1/1;
+		object-fit    : cover;
+	  }
+	}
 
-    &__author {
-      margin: 9px 0 3px;
-      grid-area: author;
+	&__author {
+	  margin    : 9px 0 3px;
+	  grid-area : author;
 
-      @include typography-testimonial-item-author;
-    }
+	  @include typography-testimonial-item-author;
 
-    &__position {
-      margin: 0 0 5px;
-      grid-area: position;
+	  color: $color__main;
+	}
 
-      @include typography-testimonial-item-position;
-      color: $color__light_typo;
-    }
+	&__position {
+	  margin    : 0 0 5px;
+	  grid-area : position;
 
-    &__stars {
-      margin: 7px 0 0;
-      grid-area: stars;
+	  @include typography-testimonial-item-position;
+	  color     : $color__light_typo;
+	}
 
-      gap: 7px;
-      display: flex;
-      align-items: center;
+	&__stars {
+	  margin      : 7px 0 0;
+	  grid-area   : stars;
 
-      color: $color__stars;
+	  gap         : 7px;
+	  display     : flex;
+	  align-items : center;
 
-      svg {
+	  color       : $color__stars;
 
-      }
-    }
+	  svg {
 
-    &__quote {
-      margin: var(--section-splide-slide-quote-mt) 0 0;
+	  }
+	}
 
-      @include typography-testimonial-item-quote;
-    }
+	&__quote {
+	  margin : var(--section-splide-slide-quote-mt) 0 0;
 
-    &__arrows {
-      position: absolute;
-      top: calc(160px + var(--section-splide-track-pt));
+	  @include typography-testimonial-item-quote;
+	}
 
-      left: 0;
-      width: 100%;
+	&__arrows {
+	  position        : absolute;
+	  top             : calc(160px + var(--section-splide-track-pt));
 
-      display: flex;
-      justify-content: space-between;
+	  left            : 0;
+	  width           : 100%;
 
-      @include scale-03 {
-        top: calc(170px + var(--section-splide-track-pt));
+	  display         : flex;
+	  justify-content : space-between;
 
-        width: calc(100% + (var(--section-splide-arrow-w) * 1.4));
-        left: calc(var(--section-splide-arrow-w) * 0.7 * -1);
-      }
+	  @include scale-03 {
+		top   : calc(170px + var(--section-splide-track-pt));
 
-      @media (max-width: 980px) {
-        left: 0;
-        width: 100%;
-        top: calc(320px + var(--section-splide-track-pt));
+		width : calc(100% + (var(--section-splide-arrow-w) * 1.4));
+		left  : calc(var(--section-splide-arrow-w) * 0.7 * -1);
+	  }
 
-      }
+	  @media (max-width : 980px) {
+		left  : 0;
+		width : 100%;
+		top   : calc(320px + var(--section-splide-track-pt));
 
-      @include tablet {
-        display: none;
-      }
+	  }
 
-      //@include layout-1200 {
-      //  top: calc(170px + var(--section-splide-track-pt));
-      //
-      //  width: calc(100% + (var(--section-splide-arrow-w) * 1.4));
-      //  left: calc(var(--section-splide-arrow-w) * 0.7 * -1);
-      //}
-    }
+	  @include tablet {
+		display : none;
+	  }
 
-    &__arrow {
-      width: var(--section-splide-arrow-w);
-      height: var(--section-splide-arrow-w);
+	  //@include layout-1200 {
+	  //  top: calc(170px + var(--section-splide-track-pt));
+	  //
+	  //  width: calc(100% + (var(--section-splide-arrow-w) * 1.4));
+	  //  left: calc(var(--section-splide-arrow-w) * 0.7 * -1);
+	  //}
+	}
 
-      display: grid;
-      place-items: center;
+	&__arrow {
+	  width         : var(--section-splide-arrow-w);
+	  height        : var(--section-splide-arrow-w);
 
-      padding: 0;
-      border: none;
-      border-radius: 50%;
+	  display       : grid;
+	  place-items   : center;
 
-      background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
+	  padding       : 0;
+	  border        : none;
+	  border-radius : 50%;
 
-      cursor: pointer;
+	  background    : $color__main;
 
-      svg {
-        color: $white;
-      }
+	  cursor        : pointer;
 
-      &--prev {
+	  &:hover,
+	  &:focus {
+		background    : $color__btn-hover;
+	  }
 
-        svg {
-          transform: rotate(-180deg);
-        }
-      }
-    }
+	  svg {
+		color : $white;
+	  }
+
+	  &--prev {
+
+		svg {
+		  transform : rotate(-180deg);
+		}
+	  }
+	}
   }
 }

@@ -1,7 +1,7 @@
 // Figma Colors
 $color__typography: #161617; // (--ColorText, #161617)
 $color__typography-lighten: lighten($color__typography, 5%);
-$color__light_typo: #7077A0;
+$color__light_typo: #7077A0; // maybe replace with #7FB859 for Product Chimp
 $color__prominence: #31D0AA;
 $color__prominence-lighten: #F2FCF9;
 
@@ -15,7 +15,7 @@ $color__btn_bg-lighten: #FFA585;
 $color__copy-green: #7FB859;
 $color__tertiary-banana-insight: #FAD25A;
 
-$color__stars: #FDB241;
+$color__stars: #FDB241;// maybe replace with $color__tertiary-banana-insight
 
 $color__border: #E4ECFF;
 
