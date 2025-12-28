@@ -35,7 +35,7 @@ $footer_copytext_mob = $fields['settings-footer__copytext--mob'] ?? null; ?>
                                 <a href="<?= $social_link['url'] ?>"
                                    target="<?= $social_link['target'] ?>"
                                    aria-label="<?= $social_link['title'] ?>">
-                                    <?= sprite_svg($social_icon['ID'], 31, 30, TRUE) ?>
+                                    <?php sprite_svg($social_icon['ID'], 31, 30) ?>
                                 </a>
                             <?php
                             endif;

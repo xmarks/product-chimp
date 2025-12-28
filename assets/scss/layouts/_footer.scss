@@ -92,6 +92,8 @@
         flex-direction: column;
 
         &-title {
+          font-family: $font__main;
+
           font-size: max(16px, (18px * var(--scale)));
           line-height: 1.5;
           font-weight: 600;
@@ -192,7 +194,7 @@
 
   &-copyright {
     margin: var(--f-copy-mt) 0 0;
-    border-top: 1px solid $color__border;
+    border-top: 1px solid $color__tertiary-banana-insight;
     padding: var(--f-copy-pt) 0 0;
 
     display: flex;
@@ -206,7 +208,7 @@
     &__copytext {
 
       span {
-        color: $color__search;
+        color: $color__copy-green;
         margin-left: calc(47px * var(--scale));
       }
 

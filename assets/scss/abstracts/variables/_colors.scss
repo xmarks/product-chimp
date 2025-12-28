@@ -5,12 +5,15 @@ $color__light_typo: #7077A0;
 $color__prominence: #31D0AA;
 $color__prominence-lighten: #F2FCF9;
 
-// $color__main: rgb(42, 75, 51); // (--Color-Primary-Deep-Dorest-Trust, #2A4B33) - V1
-$color__main: rgba(10, 66, 25, 1); // (--Color-Primary-Deep-Dorest-Trust, #2A4B33)
-$color__btn-hover: rgba(10, 66, 25, 0.9);
+$color__main: rgb(42, 75, 51); // (--Color-Primary-Deep-Dorest-Trust, #2A4B33) - V1
+// $color__main: rgba(10, 66, 25, 1); // (--Color-Primary-Deep-Dorest-Trust, #2A4B33)
+$color__btn-hover: rgba(42, 75, 51, 0.9);
 $color__second_purple: #947CF4;
 $color__btn_bg: #FE8268;
 $color__btn_bg-lighten: #FFA585;
+
+$color__copy-green: #7FB859;
+$color__tertiary-banana-insight: #FAD25A;
 
 $color__stars: #FDB241;
 

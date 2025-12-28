@@ -75,8 +75,9 @@
                             "default_value": [],
                             "allow_null": 0,
                             "multiple": 0,
-                            "default_path": "images",
-                            "svg_files": "\/images\/icons.svg",
+                            "default_path": "assets\/images\/icons",
+                            "svg_files": "\/assets\/images\/icons\/icons.svg",
+                            "allow_in_bindings": 1,
                             "choices": {
                                 "icon-arrow-right": {
                                     "ID": "icon-arrow-right"
@@ -135,7 +136,7 @@
                             "placeholder": "",
                             "return_format": "value",
                             "file": {
-                                "path": "\/images\/icons.svg"
+                                "path": "\/assets\/images\/icons\/icons.svg"
                             },
                             "parent_repeater": "field_6690e4ad2638d"
                         },
@@ -336,5 +337,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1727778522
+    "display_title": "",
+    "modified": 1766930975
 }
