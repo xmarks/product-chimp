@@ -186,12 +186,25 @@
   ul {
     // display: none;
     list-style: none;
-    margin: 0;
-    padding-left: 0;
 
     gap: var(--primary-nav-gap); // was 15px
     display: flex;
     align-items: center;
+
+    @media (min-width: 768px) {
+      &.nav-menu {
+        background: $white;
+        margin: auto;
+        width: fit-content;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius: 12px;
+
+        ul {
+          background: $white;
+        }
+      }
+    }
 
     // submenus
     ul {
