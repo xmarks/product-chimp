@@ -1,0 +1,105 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+@import '../abstracts/variables/typography';
+
+.international-section {
+  --section-pt: max(60px, (150px * var(--scale)));
+  --section-pb: max(60px, (150px * var(--scale)));
+
+  --heading-mb: max(30px, (40px * var(--scale)));
+  --subtitle-mb: max(36px, (60px * var(--scale)));
+  --marketplaces-gap: max(20px, (40px * var(--scale)));
+  --marketplace-flag-size: max(80px, (120px * var(--scale)));
+  --marketplace-label-mt: max(16px, (20px * var(--scale)));
+  --bottom-text-mt: max(36px, (60px * var(--scale)));
+
+  --heading-fs: max(40px, (70px * var(--scale)));
+  --subtitle-fs: max(20px, (24px * var(--scale)));
+  --marketplace-label-fs: max(14px, (16px * var(--scale)));
+  --bottom-text-fs: max(18px, (24px * var(--scale)));
+
+  background-color: $color__main;
+  color: $white;
+
+  @include mobile {
+    --section-pt: 50px;
+    --section-pb: 50px;
+    --marketplace-flag-size: 60px;
+    --marketplace-label-mt: 8px;
+    --subtitle-fs: 14px;
+    --marketplace-label-fs: 11px;
+    --bottom-text-fs: 13px;
+  }
+
+  .container {
+    --container-w: max(768px, (1400px * var(--scale)));
+
+    @include tablet {
+      --container-w: 100%;
+    }
+  }
+
+  &-wrapper {
+    padding: var(--section-pt) 0 var(--section-pb);
+    text-align: center;
+  }
+
+  &__heading {
+    font-size: var(--heading-fs);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--heading-mb);
+    color: $color__light;
+  }
+
+  &__subtitle {
+    font-family: $font__main;
+    font-size: var(--subtitle-fs);
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0 0 var(--subtitle-mb);
+  }
+
+  &-marketplaces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--marketplaces-gap);
+  }
+
+  &-marketplace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__flag {
+      width: var(--marketplace-flag-size);
+      height: var(--marketplace-flag-size);
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__label {
+      font-size: var(--marketplace-label-fs);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-top: var(--marketplace-label-mt);
+      color: $color__alternative-muted;
+    }
+  }
+
+  &__bottom-text {
+    font-size: var(--bottom-text-fs);
+    font-weight: 400;
+    line-height: 1.4;
+    margin: var(--bottom-text-mt) 0 0;
+    color: $color__light;
+  }
+}

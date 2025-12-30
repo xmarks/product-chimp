@@ -1,0 +1,52 @@
+{
+  "name": "pc/cta",
+  "title": "CTA Section",
+  "description": "Product Chimp Call to Action section.",
+  "style": "",
+  "category": "product-chimp",
+  "icon": "megaphone",
+  "keywords": [
+    "cta, call to action, button, action"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render.php"
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "data": {
+        "preview_image_help": "block-image-preview.png"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ],
+      "units": [
+        "px"
+      ]
+    },
+    "color": {
+      "background": true,
+      "gradients": true
+    },
+    "anchor": true
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  }
+}

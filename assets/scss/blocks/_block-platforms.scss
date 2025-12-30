@@ -1,0 +1,111 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+@import '../abstracts/variables/typography';
+
+.platforms-section {
+  --section-pt: max(80px, (120px * var(--scale)));
+  --section-pb: max(80px, (120px * var(--scale)));
+
+  --heading-mb: max(24px, (40px * var(--scale)));
+  --grid-gap: max(20px, (30px * var(--scale)));
+
+  --card-padding: max(30px, (40px * var(--scale)));
+  --card-radius: 20px;
+  --card-bg: #EAE4C8;
+
+  --icon-size: max(50px, (70px * var(--scale)));
+  --icon-wrapper-size: max(70px, (90px * var(--scale)));
+  --icon-radius: 16px;
+
+  --title-mt: max(18px, (24px * var(--scale)));
+  --desc-mt: 8px;
+
+  padding: var(--section-pt) 0 var(--section-pb);
+  background-color: $color__tertiary-banana-insight;
+
+  @include tablet {
+    --section-pt: 60px;
+    --section-pb: 60px;
+  }
+
+  @include mobile {
+    --heading-mb: 30px;
+  }
+
+  .container {
+    --container-w: max(992px, (1200px * var(--scale)));
+  }
+
+  &-wrapper {
+    width: 100%;
+  }
+
+  &__heading {
+    margin: 0 0 var(--heading-mb);
+    font-size: max(40px, (70px * var(--scale)));
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    color: $color__main;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
+    &__card {
+      background: #F2EFE680;
+      border: 1px solid #0000000D;
+      padding: var(--card-padding);
+      border-radius: 20px;
+      text-align: center;
+
+      @include mobile {
+        padding: 60px 15px;
+      }
+    }
+
+    &__icon {
+      height: 90px;
+      width: 90px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $white;
+      border-radius: var(--icon-radius);
+
+      img {
+        height: auto;
+        width: auto;
+        object-fit: contain;
+      }
+    }
+
+    &__title {
+      margin: var(--title-mt) 0 0;
+      font-family: $font__main;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $color__typography;
+    }
+
+    &__desc {
+      margin: var(--desc-mt) 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $color__typography;
+    }
+  }
+}
