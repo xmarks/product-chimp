@@ -1,0 +1,106 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+@import '../abstracts/variables/typography';
+
+.video-section-section {
+  --section-pt: max(80px, (120px * var(--scale)));
+  --section-pb: max(80px, (120px * var(--scale)));
+  --border-radius: max(16px, (24px * var(--scale)));
+  --button-padding: max(12px, (14px * var(--scale))) max(44px, (60px * var(--scale)));
+  --button-gap: max(20px, (24px * var(--scale)));
+  --button-fs: max(20px, (24px * var(--scale)));
+  --icon-size: 50px;
+
+  @include mobile {
+    --section-pt: 60px;
+    --section-pb: 60px;
+    --border-radius: 12px;
+    --button-padding: 14px 42px;
+  }
+
+  padding: var(--section-pt) 0 var(--section-pb);
+
+  &-wrapper {
+    position: relative;
+  }
+
+  &__video-container {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: #e5e5e5;
+    aspect-ratio: 16 / 9;
+  }
+
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__play-button {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--button-gap);
+    padding: var(--button-padding);
+    background-color: $white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    svg {
+      padding: 10px 10px 10px 14px;
+      border-radius: 100px;
+      width: var(--icon-size);
+      height: var(--icon-size);
+      color: $white;
+      flex-shrink: 0;
+      background: $color__main;
+    }
+
+    span {
+      font-size: var(--button-fs);
+      font-weight: 700;
+      color: $color__main;
+      line-height: 1;
+    }
+  }
+}
