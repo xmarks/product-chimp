@@ -1,0 +1,86 @@
+@import '../abstracts/mixins/mixins';
+@import '../abstracts/variables/colors';
+@import '../abstracts/variables/typography';
+
+.cta-section {
+  --section-pt: max(80px, (150px * var(--scale)));
+  --section-pb: max(80px, (150px * var(--scale)));
+
+  --heading-mb: max(30px, (40px * var(--scale)));
+  --button-mb: max(30px, (40px * var(--scale)));
+
+  --heading-fs: max(40px, (70px * var(--scale)));
+  --button-fs: max(20px, (24px * var(--scale)));
+  --text-fs: max(20px, (24px * var(--scale)));
+
+  @include mobile {
+    --section-pt: 60px;
+    --section-pb: 60px;
+    --heading-mb: 24px;
+    --button-mb: 24px;
+    --button-fs: 16px;
+  }
+
+  padding: var(--section-pt) 0 var(--section-pb);
+
+  .container {
+    --container-w: max(768px, (900px * var(--scale)));
+
+    @include tablet {
+      --container-w: 100%;
+    }
+  }
+
+  &-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    font-size: var(--heading-fs);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $color__main;
+    margin: 0 0 var(--heading-mb);
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding: 23px 40px 23px 60px;
+    background-color: $color__main;
+    color: $color__light !important;
+    font-size: var(--button-fs);
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-bottom: var(--button-mb);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: lighten($color__main, 10%);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+
+      path {
+        stroke: $color__light;
+      }
+    }
+  }
+
+  &__text {
+    font-size: var(--text-fs);
+    font-weight: 400;
+    line-height: 1.4;
+    color: $color__text-main;
+    margin: 0;
+  }
+}

@@ -112,6 +112,11 @@
   &-login {
     flex: 0 0 auto;
     margin-left: auto;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   // Getting Started Button
@@ -124,6 +129,8 @@
     }
 
     ul {
+      padding: 0;
+      margin: 0;
 
       li {
 
@@ -186,12 +193,25 @@
   ul {
     // display: none;
     list-style: none;
-    margin: 0;
-    padding-left: 0;
 
     gap: var(--primary-nav-gap); // was 15px
     display: flex;
     align-items: center;
+
+    @media (min-width: 768px) {
+      &.nav-menu {
+        background: $white;
+        margin: auto;
+        width: fit-content;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius: 12px;
+
+        ul {
+          background: $white;
+        }
+      }
+    }
 
     // submenus
     ul {
@@ -512,7 +532,7 @@
 
       .site-header {
         height: 100vh;
-        background-color: $color__bg!important;
+        background-color: $color__bg !important;
 
         .union {
           visibility: visible;

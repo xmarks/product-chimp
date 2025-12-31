@@ -18,7 +18,7 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 
 // Define theme version.
 if ( ! defined( 'PRODUCT_CHIMP_VERSION' ) ) {
-	define( 'PRODUCT_CHIMP_VERSION', '1.0.0' );
+	define( 'PRODUCT_CHIMP_VERSION', '1.0.2' );
 }
 
 // Define theme path constant.

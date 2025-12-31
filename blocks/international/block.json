@@ -1,0 +1,52 @@
+{
+  "name": "pc/international",
+  "title": "International Section",
+  "description": "Product Chimp International/Global marketplaces section.",
+  "style": "",
+  "category": "product-chimp",
+  "icon": "admin-site-alt3",
+  "keywords": [
+    "international, global, marketplaces, flags, countries"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render.php"
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "data": {
+        "preview_image_help": "block-image-preview.png"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ],
+      "units": [
+        "px"
+      ]
+    },
+    "color": {
+      "background": true,
+      "gradients": true
+    },
+    "anchor": true
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  }
+}
