@@ -9,7 +9,8 @@
   --heading-mb: max(24px, (40px * var(--scale)));
   --grid-gap: max(20px, (30px * var(--scale)));
 
-  --card-padding: max(30px, (40px * var(--scale)));
+  --card-padding-y: max(24px, (32px * var(--scale)));
+  --card-padding-x: max(18px, (24px * var(--scale)));
   --card-radius: 20px;
   --card-bg: #EAE4C8;
 
@@ -68,13 +69,87 @@
       width: 100%;
       background: #F2EFE680;
       border: 1px solid #0000000D;
-      padding: var(--card-padding);
+      padding: var(--card-padding-y) var(--card-padding-x);
       border-radius: 20px;
       text-align: center;
 
       @include mobile {
         padding: 60px 15px;
       }
+    }
+
+    &__icon {
+      height: 90px;
+      width: 90px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $white;
+      border-radius: var(--icon-radius);
+
+      img {
+        height: auto;
+        width: auto;
+        object-fit: contain;
+      }
+    }
+
+    &__title {
+      margin: var(--title-mt) 0 0;
+      font-family: $font__main;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $color__typography;
+    }
+
+    &__desc {
+      margin: var(--desc-mt) 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $color__typography;
+    }
+  }
+
+  &.has-mobile-slider {
+    .platforms-section-grid {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &-splide {
+    display: none;
+
+    .has-mobile-slider & {
+      @include mobile {
+        display: block;
+      }
+    }
+
+    &__track {
+      overflow: visible;
+    }
+
+    &__list {
+      display: flex;
+    }
+
+    &__slide {
+      flex-shrink: 0;
+    }
+
+    &__card {
+      width: 100%;
+      background: #F2EFE680;
+      border: 1px solid #0000000D;
+      padding: 60px 15px;
+      border-radius: 20px;
+      text-align: center;
+      height: 100%;
     }
 
     &__icon {
