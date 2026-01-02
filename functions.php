@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Product Chimp functions and definitions
  *
@@ -12,18 +13,18 @@ declare(strict_types=1);
 /**
  * Load Composer autoloader if present
  */
-if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
+if (file_exists(get_template_directory() . '/vendor/autoload.php')) {
 	require_once get_template_directory() . '/vendor/autoload.php';
 }
 
 // Define theme version.
-if ( ! defined( 'PRODUCT_CHIMP_VERSION' ) ) {
-	define( 'PRODUCT_CHIMP_VERSION', '1.0.2' );
+if (! defined('PRODUCT_CHIMP_VERSION')) {
+	define('PRODUCT_CHIMP_VERSION', '1.0.3');
 }
 
 // Define theme path constant.
-if ( ! defined( 'ST_THEME_PATH' ) ) {
-	define( 'ST_THEME_PATH', get_template_directory() );
+if (! defined('ST_THEME_PATH')) {
+	define('ST_THEME_PATH', get_template_directory());
 }
 
 /**
