@@ -104,26 +104,6 @@ body.error404 {
       transform: scale(1.1);
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -5%;
-      width: 110%;
-      bottom: -5%;
-
-      border-radius: 44px;
-      background: linear-gradient(90deg, #8C97FF 22.86%, #31D0AA 99.33%);
-      filter: blur(24px);
-
-      overflow: visible!important;
-
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -webkit-transform: translate3d(0, 0, 0);
-      -moz-transform: translate3d(0, 0, 0);
-    }
-
     .inside {
       padding: var(--btn-pt) var(--btn-pr) var(--btn-pb) var(--btn-pl);
 
