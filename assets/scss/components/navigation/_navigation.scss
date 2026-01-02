@@ -289,7 +289,7 @@
         //background-color: $white;
         -webkit-backdrop-filter: blur(35px);
         backdrop-filter: blur(35px);
-        border-radius: 10px;
+        border-radius: 0 0 10px 10px;
 
         @include tablet {
           display: none;
@@ -532,7 +532,7 @@
 
       .site-header {
         height: 100vh;
-        background-color: $color__bg !important;
+        background: $color__bg !important;
 
         .union {
           visibility: visible;
