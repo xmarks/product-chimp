@@ -77,6 +77,9 @@
     }
 
     .container {
+      position: relative;
+      z-index: 1;
+
       gap: var(--nav-gap);
       display: flex;
       align-items: center;
@@ -105,6 +108,7 @@
         left: 0;
         width: 100%;
         bottom: 0;
+        z-index: 1;
 
         -webkit-backdrop-filter: blur(15px);
         backdrop-filter: blur(15px);
