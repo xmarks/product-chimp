@@ -17,7 +17,21 @@ if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
 
+// Get items count early to determine if we need the slider
+$fields_check = get_field($block_name);
+$items_check  = $fields_check["{$block_name}-items"] ?? [];
+$items_count  = is_array($items_check) ? count($items_check) : 0;
+$use_slider   = $items_count >= 4;
+
+if ($use_slider) {
+    wp_enqueue_style('plugins.splidejs.core');
+    wp_enqueue_script('plugins.splidejs.splide');
+}
+
 $classes = "{$block_name}-section builder-section";
+if ($use_slider) {
+    $classes .= ' has-mobile-slider';
+}
 if (!empty($block['className'])) {
     $classes .= ' ' . $block['className'];
 }
@@ -82,9 +96,66 @@ else: ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
+
+                    <?php if ($use_slider) : ?>
+                        <div id="splide-<?= esc_attr($id); ?>" class="splide <?= $block_name ?>-section-splide"
+                             aria-label="platforms">
+                            <div class="splide__track <?= $block_name ?>-section-splide__track">
+                                <ul class="splide__list <?= $block_name ?>-section-splide__list">
+                                    <?php foreach ($items as $key => $item) :
+                                        $icon  = $item["{$block_name}-item__icon"] ?? null;
+                                        $title = $item["{$block_name}-item__title"] ?? null;
+                                        $desc  = $item["{$block_name}-item__description"] ?? null;
+                                        ?>
+                                        <li class="splide__slide <?= $block_name ?>-section-splide__slide">
+                                            <div class="<?= $block_name ?>-section-splide__card">
+                                                <?php if ($icon) : ?>
+                                                    <div class="<?= $block_name ?>-section-splide__icon">
+                                                        <img src="<?= $icon['url'] ?>"
+                                                             alt="<?= $icon['alt'] ?: $title ?>"
+                                                             width="<?= $icon['width'] ?>"
+                                                             height="<?= $icon['height'] ?>"/>
+                                                    </div>
+                                                <?php endif; ?>
+
+                                                <?php if ($title) : ?>
+                                                    <h3 class="<?= $block_name ?>-section-splide__title">
+                                                        <?= $title ?>
+                                                    </h3>
+                                                <?php endif; ?>
+
+                                                <?php if ($desc) : ?>
+                                                    <p class="<?= $block_name ?>-section-splide__desc">
+                                                        <?= $desc ?>
+                                                    </p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>
     </section>
+
+    <?php if ($use_slider) : ?>
+        <script id="scripts-<?= esc_attr($id); ?>" type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                const splide = new Splide('#splide-<?= esc_attr($id); ?>', {
+                    type: 'slide',
+                    perPage: 1,
+                    perMove: 1,
+                    gap: '16px',
+                    padding: { right: '20%' },
+                    arrows: false,
+                    pagination: false,
+                });
+                splide.mount();
+            });
+        </script>
+    <?php endif; ?>
 <?php
 endif; ?>
