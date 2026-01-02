@@ -50,11 +50,13 @@
   }
 
   &-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
     gap: 24px;
 
     @include tablet {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -63,6 +65,7 @@
     }
 
     &__card {
+      width: 100%;
       background: #F2EFE680;
       border: 1px solid #0000000D;
       padding: var(--card-padding);

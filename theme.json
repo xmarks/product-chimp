@@ -8,6 +8,8 @@
     },
     "spacing": {
       "blockGap": true,
+      "padding": true,
+      "margin": true,
       "spacingSizes": [
         {"size": "1rem", "slug": "1","name": "16px (1rem)"},
         {"size": "2rem", "slug": "2","name": "32px (2rem)"},
