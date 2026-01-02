@@ -7,54 +7,60 @@
  * @package Product_Chimp
  */
 
-get_header();
-?>
+get_header('clean');
 
-	<main id="primary" class="site-main">
+$fields  = get_field('settings-404', 'option');
+$image   = $fields['settings-404__image'] ?? null;
+$heading = $fields['settings-404__heading'] ?? null;
+$text    = $fields['settings-404__text'] ?? null;
+$cta     = $fields['settings-404__cta'] ?? null; ?>
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'product-chimp' ); ?></h1>
-			</header><!-- .page-header -->
+    <main id="primary" class="site-main">
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'product-chimp' ); ?></p>
+        <section class="error-404 not-found">
+            <?php
+            if($image) : ?>
+                <img class="error-404__img"
+                     src="<?= $image['url'] ?>"
+                     alt="<?= $image['title'] ?>"
+                     width="<?= $image['width'] ?>"
+                     height="<?= $image['height'] ?>"/>
+            <?php
+            endif; ?>
 
-					<?php
-					get_search_form();
+            <header class="page-header">
+                <?php
+                if($heading) : ?>
+                    <h1 class="error-404__heading">
+                        <?php esc_html_e($heading); ?>
+                    </h1>
+                <?php
+                endif; ?>
+            </header><!-- .page-header -->
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+            <div class="page-content">
+                <?php
+                if($text) : ?>
+                    <p class="error-404__desc">
+                        <?php esc_html_e($text); ?>
+                    </p>
+                <?php
+                endif;
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'product-chimp' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+                if($cta) : ?>
+                    <a class="error-404__cta btn"
+                       href="<?= $cta['url'] ?>"
+                       target="<?= $cta['target'] ?>">
+                        <span class="inside">
+                            <span><?= $cta['title'] ?></span>
+                        </span>
+                    </a>
+                <?php
+                endif; ?>
 
-					<?php
-					/* translators: %1$s: smiley */
-					$product_chimp_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'product-chimp' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$product_chimp_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+            </div><!-- .page-content -->
+        </section><!-- .error-404 -->
+    </main><!-- #main -->
 
 <?php
-get_footer();
+get_footer('clean');
