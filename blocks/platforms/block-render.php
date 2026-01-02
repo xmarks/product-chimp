@@ -23,7 +23,6 @@ $items_check  = $fields_check["{$block_name}-items"] ?? [];
 $items_count  = is_array($items_check) ? count($items_check) : 0;
 $use_slider   = $items_count >= 4;
 
-// Enqueue Splide if we have 4+ items
 if ($use_slider) {
     wp_enqueue_style('plugins.splidejs.core');
     wp_enqueue_script('plugins.splidejs.splide');
@@ -67,7 +66,6 @@ else: ?>
                 <?php endif; ?>
 
                 <?php if ($items) : ?>
-                    <!-- Desktop/Tablet Grid (also mobile if 3 or fewer items) -->
                     <div class="<?= $block_name ?>-section-grid">
                         <?php foreach ($items as $key => $item) :
                             $icon  = $item["{$block_name}-item__icon"] ?? null;
@@ -100,7 +98,6 @@ else: ?>
                     </div>
 
                     <?php if ($use_slider) : ?>
-                        <!-- Mobile Splide Carousel (4+ items only) -->
                         <div id="splide-<?= esc_attr($id); ?>" class="splide <?= $block_name ?>-section-splide"
                              aria-label="platforms">
                             <div class="splide__track <?= $block_name ?>-section-splide__track">
