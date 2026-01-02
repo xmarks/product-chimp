@@ -29,18 +29,20 @@ $wrapper_attributes = get_block_wrapper_attributes([
     'class' => $classes
 ]);
 
-function pc_extract_vimeo_id($url) {
-    $patterns = [
-        '/vimeo\.com\/(\d+)/',
-        '/vimeo\.com\/video\/(\d+)/',
-        '/player\.vimeo\.com\/video\/(\d+)/'
-    ];
-    foreach ($patterns as $pattern) {
-        if (preg_match($pattern, $url, $matches)) {
-            return $matches[1];
+if (!function_exists('pc_extract_vimeo_id')) {
+    function pc_extract_vimeo_id($url) {
+        $patterns = [
+            '/vimeo\.com\/(\d+)/',
+            '/vimeo\.com\/video\/(\d+)/',
+            '/player\.vimeo\.com\/video\/(\d+)/'
+        ];
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $matches)) {
+                return $matches[1];
+            }
         }
+        return null;
     }
-    return null;
 }
 
 if (isset($block['data']['preview_image_help'])) :

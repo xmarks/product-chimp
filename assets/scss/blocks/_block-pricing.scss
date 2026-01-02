@@ -124,6 +124,10 @@
 
     &--popular {
       border: 6px solid $color__tertiary-banana-insight;
+
+      .pricing-section-card__inner {
+        padding-top: calc(var(--card-py) - 4px);
+      }
     }
 
     &__badge {

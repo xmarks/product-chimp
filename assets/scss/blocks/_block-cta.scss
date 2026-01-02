@@ -11,6 +11,7 @@
 
   --heading-fs: max(40px, (70px * var(--scale)));
   --button-fs: max(20px, (24px * var(--scale)));
+  --fine-print-fs: max(14px, (16px * var(--scale)));
   --text-fs: max(20px, (24px * var(--scale)));
 
   @include mobile {
@@ -22,9 +23,10 @@
   }
 
   padding: var(--section-pt) 0 var(--section-pb);
+  border-radius: 24px;
 
   .container {
-    --container-w: max(768px, (900px * var(--scale)));
+    --container-w: max(768px, (1100px * var(--scale)));
 
     @include tablet {
       --container-w: 100%;
@@ -59,7 +61,7 @@
     line-height: 1;
     text-decoration: none;
     border-radius: 50px;
-    margin-bottom: var(--button-mb);
+    margin-bottom: 12px;
     transition: background-color 0.2s ease;
 
     &:hover {
@@ -74,6 +76,13 @@
         stroke: $color__light;
       }
     }
+  }
+
+  &__fine-print {
+    font-weight: 400;
+    line-height: 1;
+    color: $color__main;
+    margin: 0 0 var(--button-mb);
   }
 
   &__text {

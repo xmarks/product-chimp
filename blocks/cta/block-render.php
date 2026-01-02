@@ -39,10 +39,11 @@ if (isset($block['data']['preview_image_help'])) :
 else: ?>
     <section id="<?= esc_attr($id); ?>" <?= $wrapper_attributes; ?>>
         <?php
-        $fields  = get_field($block_name);
-        $heading = $fields["{$block_name}__heading"] ?? null;
-        $button  = $fields["{$block_name}__button"] ?? null;
-        $text    = $fields["{$block_name}__text"] ?? null;
+        $fields     = get_field($block_name);
+        $heading    = $fields["{$block_name}__heading"] ?? null;
+        $button     = $fields["{$block_name}__button"] ?? null;
+        $text       = $fields["{$block_name}__text"] ?? null;
+        $fine_print = $fields["{$block_name}__fine_print"] ?? null;
         ?>
         <div class="container">
             <div class="<?= $block_name ?>-section-wrapper">
@@ -62,6 +63,12 @@ else: ?>
                             <path d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
+                <?php endif;
+
+                if ($fine_print) : ?>
+                    <p class="<?= $block_name ?>-section__fine-print">
+                        <?= esc_html($fine_print) ?>
+                    </p>
                 <?php endif; ?>
 
                 <?php if ($text) : ?>
